@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wizard Calculator</title>
+    <!--strg + d => dupli-->
+    <link rel="stylesheet" href="styles/game.css">
+</head>
+<body>
+<div>
+    <h1>Wizard Calculator</h1>
+    <h2>let´s play a game (:</h2>
+
+    <form class="gamedataform">
+        <input placeholder="number of people" type="number" name="numberOfPeople">
+        <input placeholder="number of rounds" type="number">
+        <button type="submit">Calculate</button>
+    </form>
+
+    <p></p>
+    <table class="person">
+        <caption>Wizard game</caption>
+        <thead>
+        <tr>
+            <th colspan="3">name</th>
+        </tr>
+        <tr>
+            <td><input placeholder="Person 1" type="text"></td>
+            <td><input placeholder="Person 2" type="text"></td>
+            <td><input placeholder="Person 3" type="text"></td>
+        </tr>
+        </thead>
+
+        <thead>
+    </table>
+    <p></p>
+    <table class="calculation">
+        <tr>
+
+            <th>forecast</th>
+            <th>reached</th>
+            <th>points</th>
+        </tr>
+        <tr>
+            <td><input placeholder="forecast" type="number"></td>
+            <td><input placeholder="reached" type="number"></td>
+            <td><input placeholder="points" type="number"></td>
+        </tr>
+        </thead>
+    </table>
+    <p>result</p>
+    <p id="result"></p>
+
+
+</div>
+<script type="module" src="modules/index.js"></script>
+<script type="module" src="modules/calculateResult.js"></script>
+</body>
+</html>

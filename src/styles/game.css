@@ -1,0 +1,19 @@
+body {
+    background-color: #ffffff;
+
+    h1 {
+        color: red;
+    }
+
+    h2 {
+        color: red;
+    }
+    table{
+        color: white;
+        padding: 10px 15px;
+        font-size: 20px;
+        width: min-content;
+
+    }
+
+}
