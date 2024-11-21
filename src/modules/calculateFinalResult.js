@@ -1,9 +1,9 @@
 import {calculateResult} from "./calculateResult.js";
-import {data} from "./data.js";
+import {datasForGame} from "./datasForGame.js";
 
-function calculateFinalResult() {
+export function calculateFinalResult() {
     const result = calculateResult();
-    const {persons, forecast} = data();
+    const {persons, forecast} = datasForGame();
 
     let finalResult = []; //finalResult mit 0en füllen
     for (let i = 0; i<persons; i++) {
@@ -17,5 +17,3 @@ function calculateFinalResult() {
     }
     return finalResult
 }
-
-//console.log(calculateFinalResult())

@@ -1,21 +1,40 @@
-let forecast = [];
-let persons = 3;
+/*function data() {
+    const persons = 2;
 
-for (let i = 0; i < persons; i++) {
-const readline = require('readline');
+    const forecast = new Array(persons) //Array generieren
+    for (let i = 0; i < persons; i++) {
+        forecast[i] = [];
+        if(i===0){
+            forecast[i].push = function (number) {
+            };
+        }
+        if(i===1){
+            forecast[i].push(2);
+        }
+        if(i===2){
+            forecast[i].push(2);
+        }
+        if(i===3){
+            forecast[i].push(2);
+        }
+    }
 
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
-
-
-    rl.question("Please enter your forecast: ", function (input) {
-        // Konvertiere die Eingabe zu einer Zahl
-        let forecastOnly = parseInt(input, 10);
-
-        forecast.push(forecastOnly);
-        rl.close(); //close Interface
-    })
+    const reached = new Array(persons) //Array generieren
+    for (let i = 0; i < persons; i++) {
+        reached[i] = [];
+        if(i===0){
+            reached[i].push(6);
+        }
+        if(i===1){
+            reached[i].push(7);
+        }
+        if(i===2){
+            reached[i].push(8);
+        }
+        if(i===3){
+            reached[i].push(9);
+        }
+    }
+    return {persons, forecast, reached};
 }
-;
+console.log(data())*/
