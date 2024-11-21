@@ -1,3 +1,5 @@
+import {setPeople} from './sharedState.js';
+
 export function numberOfPeople(event) {
     /*const input = event.target;
     const people = input.value;*/
@@ -5,5 +7,6 @@ export function numberOfPeople(event) {
     const formNumberOfPeople = new FormData(input.form);
     const people = formNumberOfPeople.get("numberOfPeople");
     console.log(people);
+    setPeople(people);
     return people;
 }

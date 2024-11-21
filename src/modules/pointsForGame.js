@@ -1,3 +1,5 @@
+import {setForecast} from "./sharedState.js";
+
 export function pointsForGame(event) {
     const input = event.target;
     const formPointsForGame = new FormData(input.form);
@@ -12,7 +14,8 @@ export function pointsForGame(event) {
 
     const fc11 = formPointsForGame.get("forecast11");
     const rd11 = formPointsForGame.get("reached11");
-    console.log(fc00, rd00, fc01, rd01, fc10, rd10, fc11, rd11);
-    return {fc00, rd00, fc01, rd01, fc10, rd10, fc11, rd11};
+    //console.log(fc00);
+    setForecast([fc00, fc01, rd00, rd01, fc10, fc11, rd10, rd11]);
+    return {fc00, fc01, rd00, rd01, fc10, fc11, rd10, rd11};
 }
 

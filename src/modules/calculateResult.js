@@ -1,5 +1,5 @@
 //schleife durch forEach tauschen!!!!!!!!!!!!!!
-
+import { getPeople } from './sharedState.js';
 import {datasForGame} from "./datasForGame.js";
 
 export function calculateResult(event) {
@@ -7,7 +7,8 @@ export function calculateResult(event) {
     const formprobe = new FormData(input.form);
     const probe = formprobe.get("probe");
 
-    const {people, forecast, reached} = datasForGame();
+    const people = getPeople();
+    const {forecast, reached} = datasForGame();
     const pointsForStich = 10;
     const pointsForForecast = 20; //20 points bei forecast = reached
     const result = new Array(people)
