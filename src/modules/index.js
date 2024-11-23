@@ -1,9 +1,11 @@
-//import {nextToHtml} from"./nextToHtml.js"
 import {datasForGame} from "./datasForGame.js";
 import {pointsForGame} from "./pointsForGame.js";
 import {numberOfPeople} from "./numberOfPeople.js";
 import {calculateResult} from "./calculateResult.js";
-//import {calculateFinalResult} from "./calculateFinalResult.js";
+import {calculateFinalResult} from "./calculateFinalResult.js";
+import {calculateSequence} from "./calculateSequence.js";
+import {roundForGames} from "./roundForGames.js";
+import {outputRound} from "./outputRound.js";
 //import {calculateResultOutPut} from "./calculateResultOutPut.js";
 
 const numberOfPeopleForm = document.getElementById("numberOfPeopleForm");
@@ -19,15 +21,21 @@ for (let input of pointsForGameinputs) {
     input.addEventListener("input", pointsForGame);
 }
 
-const probe = document.getElementById("probe");
-const probeInputs = probe.querySelectorAll("input");
-for (let input of probeInputs) {
-    input.addEventListener("input", calculateResult);
+const calculateSequenceForm = document.getElementById("calculateSequenceForm");
+const calculateSequenceInputs= calculateSequenceForm.querySelectorAll("input");
+for (let input of calculateSequenceInputs) {
+    input.addEventListener("input", roundForGames);
 }
 
-/*const calculateResultForm = document.getElementById("calculateResultForm");
-for (let element of calculateResultForm) {
-    element.addEventListener("submit", calculateResult);
+/*const probe = document.getElementById("probe");
+const probeInputs = probe.querySelectorAll("input");
+for (let input of probeInputs) {
+    input.addEventListener("input", calculateFinalResult);
+}*/
+
+/*const buttonForm = document.getElementById("buttonForm");
+for (let element of buttonForm) {
+    element.addEventListener("submit", calculateFinalResult);
 }*/
 
 

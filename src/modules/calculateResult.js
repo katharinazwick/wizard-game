@@ -2,11 +2,7 @@
 import { getPeople } from './sharedState.js';
 import {datasForGame} from "./datasForGame.js";
 
-export function calculateResult(event) {
-    const input = event.target;
-    const formprobe = new FormData(input.form);
-    const probe = formprobe.get("probe");
-
+export function calculateResult() {
     const people = getPeople();
     const {forecast, reached} = datasForGame();
     const pointsForStich = 10;
@@ -27,7 +23,9 @@ export function calculateResult(event) {
             }
         }
     }
-    console.log(result)
-    return {result};
+    console.log("result:", result)
+    const outputArrayRes = document.getElementById("outputArrayResult");
+    outputArrayRes.textContent = `result is: ${result}`;
+    return result;
 }
 

@@ -8,19 +8,52 @@ export function getPeople() {
     return people;
 }
 
-let fc00, fc01, rd00, rd01, fc10, fc11, rd10, rd11 = null;
+let fc = [[]]
+//let fc00, fc01 = null;
 
-export function setForecast(value) {
-    fc00 = parseInt(value[0], 10);
-    fc01 = parseInt(value[1], 10);
-    rd00 = parseInt(value[2], 10);
-    rd01 = parseInt(value[3], 10);
-    fc10 = parseInt(value[4], 10);
-    fc11 = parseInt(value[5], 10);
-    rd10 = parseInt(value[6], 10);
-    rd11 = parseInt(value[7], 10);
+/*export function setForecast(value) {
+    //fcData = value.map (row => row.map (cell => parseInt(cell, 10)));
+    //fc = parseInt(value, 10);
+    for (let p = 0; p < 4; p++) {
+        for (let i =0; i<3;i++){
+            fc[p][i] = parseInt(value, 10);
+        }
+    }
 }
 
 export function getForecast() {
-    return {fc00, fc01, rd00, rd01, fc10, fc11, rd10, rd11};
+    return fc;
+}*/
+// export
+//  fcData
+export let fcData = []; // Globale Variable für die Vorhersage-Daten
+
+export function setForecast(value) {
+    fcData = value.map(row => row.map(cell => parseInt(cell, 10)));
+}
+
+/*
+export function getForecast() {
+    return fcData;
+}
+*/
+
+let rdData = [];
+
+export function setReached(value) {
+    rdData = value.map(row => row.map(cell => parseInt(cell, 10)));
+}
+
+export function getReached() {
+    return rdData;
+}
+
+let round = null;
+
+export function setRound(value) {
+    round = parseInt(value, 10);
+}
+
+export function getRound(value) {
+    return round;
 }

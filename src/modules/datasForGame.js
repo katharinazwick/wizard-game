@@ -1,42 +1,50 @@
-import {getPeople} from './sharedState.js';
-import {getForecast} from "./sharedState.js";
+import {getPeople, getReached} from './sharedState.js';
+import {fcData} from "./sharedState.js";
+
+//import {pointsForGame} from "./pointsForGame.js";
 
 export function datasForGame() {
     const people = getPeople();
-    const {fc00, fc01, rd00, rd01, fc10, fc11, rd10, rd11} = getForecast();
-    const forecast = new Array(people) //Array generieren
+    const rdData = getReached();
+
+    /*
+    {
+       personName: "Manfred",
+       email: "manfred@manfred.com",
+       guesses: [
+          1, 2, 3,
+       ]
+    }
+     */
+    const forecast = new Array(people); //Array generieren -> [undefined, undefined, undefined] wenn people = 3
+    const reached = new Array(people); //Array generieren
+
     for (let i = 0; i < people; i++) {
         forecast[i] = [];
-        if (i === 0) {
-            forecast[i].push(fc00, fc01);
-        }
-        if (i === 1) {
-            forecast[i].push(fc10, fc11);
-        }
-        if (i === 2) {
-            forecast[i].push(2);
-        }
-        if (i === 3) {
-            forecast[i].push(2);
-        }
-    }
-
-    const reached = new Array(people) //Array generieren
-    for (let i = 0; i < people; i++) {
         reached[i] = [];
-        if (i === 0) {
-            reached[i].push(rd00, rd01);
-        }
-        if (i === 1) {
-            reached[i].push(rd10, rd11);
-        }
-        if (i === 2) {
-            reached[i].push(8);
-        }
-        if (i === 3) {
-            reached[i].push(9);
+        for (let p = 0; p < 4; p++) {
+            /*if (!fcData[p][i]) {
+                forecast[i].push(0);
+                reached[i].push(0);
+                //debugger;
+            }*/
+            if (isNaN(forecast[i])) {
+                ///////////
+            } else if (i === 0) {
+                forecast[i].push(fcData[p][i]);
+                reached[i].push(rdData[p][i]);
+            } else if (i === 1) {
+                forecast[i].push(fcData[p][i]);
+                reached[i].push(rdData[p][i]);
+            } else if (i === 2) {
+                forecast[i].push(fcData[p][i]);
+                reached[i].push(rdData[p][i]);
+            } else if (i === 3) {
+                forecast[i].push(fcData[p][i]);
+                reached[i].push(rdData[p][i]);
+            }
         }
     }
-    console.log(forecast, reached);
+    console.log("forecast:", forecast, "reached:", reached);
     return {forecast, reached};
 }

@@ -16,35 +16,31 @@
         <input placeholder="number of people" type="number" name="numberOfPeople">
     </form>
     <p></p>
-    <label id="name" class="loop">
-        <input placeholder="name" type="text">
-        <input placeholder="name" type="text">
-    </label>
+    <form id="calculateSequenceForm" class="calculateSequenceForm">
+        <input placeholder="round" type="number" name="calculateSequence">
+    </form>
+    <div id="round">round is coming soon...</div>
+    <button onclick="outputRound()">round anzeigen</button>
     <p></p>
-    <form id="pointsForGameForm" class="loop">
-        <input placeholder="forecast" size="5" type="text" name="forecast00">
-        <input placeholder="reached" size="5" type="text" name="reached00"/>
-        &emsp
-        <input placeholder="forecast" size="5" type="text" name="forecast10">
-        <input placeholder="reached" size="5" type="text" name="reached10"/>
-        <br>
-        <input placeholder="forecast" size="5" type="text" name="forecast01">
-        <input placeholder="reached" size="5" type="text" name="reached01"/>
-        &emps
-        <input placeholder="forecast" size="5" type="text" name="forecast11">
-        <input placeholder="reached" size="5" type="text" name="reached11"/>
-        <br>
+
+    <form id="name" class="name">
     </form>
 
-    <form id="probe" class="probe">
-        <input placeholder="probe" type="text" name="probe">
-        <button type="submit" name="probe">nextRound</button>
+    <p></p>
+    <form id="pointsForGameForm" class="pointsForGameForm">
     </form>
 
-    <form id="calculateResultForm">
-    </form>
+    <div id="outputArrayResult">Result is coming soon...</div>
+
+    <div id="outputArrayFinalResult">final Result is coming soon...</div>
+    <button onclick="outputArrayFinalResult()">Result anzeigen</button>
+
+
 
 </div>
+<script type="module" src="modules/htmlLoopForName.js"></script>
+<script type="module" src="modules/loopForPoints.js"></script>
 <script type="module" src="modules/index.js"></script>
+<script type="module" src="modules/outputArray.js"></script>
 </body>
 </html>
