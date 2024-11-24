@@ -1,4 +1,4 @@
-import {getPeople, getRound} from "./sharedState.js";
+/*import {getPeople, getRound} from "./sharedState.js";
 
 export function calculateSequence(event) {
 
@@ -25,4 +25,4 @@ export function calculateSequence(event) {
     }
     console.log(newPeople);
     return newPeople;
-}
+}*/

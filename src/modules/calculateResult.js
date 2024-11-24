@@ -1,31 +1,29 @@
-//schleife durch forEach tauschen!!!!!!!!!!!!!!
-import { getPeople } from './sharedState.js';
-import {datasForGame} from "./datasForGame.js";
+import {getPeople, getTheData} from "./state.js";
 
 export function calculateResult() {
     const people = getPeople();
-    const {forecast, reached} = datasForGame();
+    const theData = getTheData();
     const pointsForStich = 10;
     const pointsForForecast = 20; //20 points bei forecast = reached
-    const result = new Array(people)
-    for (let i = 0; i < people; i++) {
-        result[i] = [];
-    }
 
-    for (let k = 0; k < people; k++) {
-        for (let i in forecast[k]) { //Berechnung der Punkte für 2 Fälle
-            if (forecast[k][i] === reached[k][i]) {
-                result[k][i] = pointsForForecast + pointsForStich * reached[k][i];
-            } else {
-                let pointForWrong = 0;
-                pointForWrong = Math.abs((forecast[k][i] - reached[k][i]) * 10);
-                result[k][i] = pointsForStich * reached[k][i] - pointForWrong
-            }
+    for (let i = 0; i < people; i++) {
+
+        if (theData[i].forecast === theData[i].reached) {
+            theData[i].result = pointsForForecast + pointsForStich * theData[i].reached
+        } else {
+            let pointForWrong = 0;
+            pointForWrong = Math.abs((theData[i].forecast - theData[i].reached) * 10);
+            theData[i].result = pointsForStich * theData[i].reached - pointForWrong;
         }
     }
-    console.log("result:", result)
-    const outputArrayRes = document.getElementById("outputArrayResult");
-    outputArrayRes.textContent = `result is: ${result}`;
-    return result;
+    console.log(theData);
+    return theData
 }
+
+const theData = calculateResult();
+
+const button = document.getElementById('logButton');
+button.addEventListener('click', () => {
+    console.log(theData);
+});
 

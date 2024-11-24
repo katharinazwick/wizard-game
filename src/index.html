@@ -1,46 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wizard Calculator</title>
-    <!--strg + d => dupli-->
-    <link rel="stylesheet" href="styles/game.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wizard Calculator</title>
+  <!--strg + d => dupli-->
+  <link rel="stylesheet" href="styles/game.css">
 </head>
 <body>
 <div>
-    <h1>Wizard Calculator</h1>
-    <h2>let´s play a game (:</h2>
+  <h1>Wizard Calculator</h1>
+  <h2>let´s play a game (:</h2>
 
-    <form id="numberOfPeopleForm" class="numberOfPeopleForm">
-        <input placeholder="number of people" type="number" name="numberOfPeople">
-    </form>
-    <p></p>
-    <form id="calculateSequenceForm" class="calculateSequenceForm">
-        <input placeholder="round" type="number" name="calculateSequence">
-    </form>
-    <div id="round">round is coming soon...</div>
-    <button onclick="outputRound()">round anzeigen</button>
-    <p></p>
+  <form id="numberOfPeopleForm" class="numberOfPeopleForm">
+    <label>
+      <input placeholder="number of people" type="number" name="numberOfPeople">
+    </label>
+  </form>
 
-    <form id="name" class="name">
-    </form>
+  <p></p>
 
-    <p></p>
-    <form id="pointsForGameForm" class="pointsForGameForm">
-    </form>
+  <form id="calculateSequenceForm" class="calculateSequenceForm">
+    <label>
+      <input placeholder="round" type="number" name="calculateSequence">
+    </label>
+  </form>
+  <div id="round">round is coming soon...</div>
+  <button onclick="outputRound()">round anzeigen</button>
 
-    <div id="outputArrayResult">Result is coming soon...</div>
+  <p></p>
+  <form id="getTheDataForm" class="getTheDataForm">
+  </form>
 
-    <div id="outputArrayFinalResult">final Result is coming soon...</div>
-    <button onclick="outputArrayFinalResult()">Result anzeigen</button>
+  <div id="logButton">final Result is coming soon...</div>
+  <button onclick="logButton()">Result anzeigen</button>
 
 
 
 </div>
-<script type="module" src="modules/htmlLoopForName.js"></script>
-<script type="module" src="modules/loopForPoints.js"></script>
+<script type="module" src="modules/state.js"></script>
+<script type="module" src="modules/loopTheFields.js"></script>
 <script type="module" src="modules/index.js"></script>
-<script type="module" src="modules/outputArray.js"></script>
 </body>
 </html>

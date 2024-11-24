@@ -1,12 +1,4 @@
-let people = null;
-
-export function setPeople(value) {
-    people = parseInt(value, 10);
-}
-
-export function getPeople() {
-    return people;
-}
+/*
 
 let fc = [[]]
 //let fc00, fc01 = null;
@@ -23,7 +15,7 @@ let fc = [[]]
 
 export function getForecast() {
     return fc;
-}*/
+}
 // export
 //  fcData
 export let fcData = []; // Globale Variable für die Vorhersage-Daten
@@ -36,7 +28,7 @@ export function setForecast(value) {
 export function getForecast() {
     return fcData;
 }
-*/
+
 
 let rdData = [];
 
@@ -56,4 +48,4 @@ export function setRound(value) {
 
 export function getRound(value) {
     return round;
-}
+}*/

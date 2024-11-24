@@ -1,4 +1,4 @@
-import {calculateSequence} from "./calculateSequence.js";
+/*import {calculateSequence} from "./calculateSequence.js";
 
 export function outputRound() {
     const newpeople = calculateSequence();
@@ -7,4 +7,4 @@ export function outputRound() {
     outputNP.textContent = `your sequence is: ${newpeople}`;
 }
 
-window.outputRound = outputRound;
+window.outputRound = outputRound;*/

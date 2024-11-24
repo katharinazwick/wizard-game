@@ -1,4 +1,6 @@
-import {getPeople} from "./State.js";
+/*import {calculateResult} from "./calculateResult.js";
+import {datasForGame} from "./datasForGame.js";
+import {getPeople} from "./sharedState.js";
 
 export function calculateFinalResult() {
     const result = calculateResult();
@@ -32,4 +34,4 @@ const finalResult = calculateFinalResult();
 const button = document.getElementById('logButton');
 button.addEventListener('click', () => {
     console.log(finalResult);
-});
+});*/

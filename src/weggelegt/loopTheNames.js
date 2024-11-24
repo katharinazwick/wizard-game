@@ -1,10 +1,10 @@
-//import {getPeople} from "./sharedState";
+/*import {getPeople} from "./state.js";
 
-const people = 3//getPeople();
+const numberOfPeople = getPeople();
 const nameForm = document.getElementById("name");
 
 
-for (let i = 1; i <= people; i++) {
+for (let i = 1; i <= numberOfPeople; i++) {
     const nameInput = document.createElement('input');
     nameInput.type = 'text';
     nameInput.name = `person${i}`;
@@ -12,6 +12,4 @@ for (let i = 1; i <= people; i++) {
     nameInput.size = 15
 
     nameForm.appendChild(nameInput);
-}
-
-
+}*/

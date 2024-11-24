@@ -1,20 +1,12 @@
-import {calculateFinalResult} from "./calculateFinalResult.js";
-import {calculateResult} from "./calculateResult.js";
+import {calculateResult} from "./calculateResult";
 
-function outputArrayResult (){
-    const result = calculateResult();
-    const outputArrayRes = document.getElementById("outputArrayResult");
 
-    outputArrayRes.textContent = `result is: ${result.join(", ")}`;
-}
-
-function outputArrayFinalResult() {
-    const finalResult = calculateFinalResult();
-    const outputArrayFinalRes = document.getElementById("outputArrayFinalResult");
+function outputResult() {
+    const theData = calculateResult();
+    const outputRes = document.getElementById("outputResult");
 
     // Array als Text ausgeben
-    outputArrayFinalRes.textContent = `final Result is: ${finalResult.join(", ")}`;
+    outputRes.textContent = `final Result is: ${theData.join(", ")}`;
 }
 
-window.outputArrayResult = outputArrayResult;
-window.outputArrayFinalResult = outputArrayFinalResult;
+window.outputResult = outputResult;

@@ -1,40 +1,34 @@
-/*function data() {
-    const persons = 2;
+function getTheData() {
+    const people = 2;
+    const theData = [];
 
-    const forecast = new Array(persons) //Array generieren
-    for (let i = 0; i < persons; i++) {
-        forecast[i] = [];
-        if(i===0){
-            forecast[i].push = function (number) {
-            };
-        }
-        if(i===1){
-            forecast[i].push(2);
-        }
-        if(i===2){
-            forecast[i].push(2);
-        }
-        if(i===3){
-            forecast[i].push(2);
-        }
-    }
+    for (let i = 1; i <= people; i++) {
+        theData.push({
+            name: "",
+            forecast: [],
+            reached: [],
+            result: [],
+            finalResult: []
+        });
 
-    const reached = new Array(persons) //Array generieren
-    for (let i = 0; i < persons; i++) {
-        reached[i] = [];
-        if(i===0){
-            reached[i].push(6);
-        }
-        if(i===1){
-            reached[i].push(7);
-        }
-        if(i===2){
-            reached[i].push(8);
-        }
-        if(i===3){
-            reached[i].push(9);
-        }
+       // let keys = Object.keys(theData[i]); //["name", "forecast"...]
+
+        theData[i-1].name= ("paul"); //11
+        theData[i-1].name =("heinz") ;
+        theData[i-1].forecast.push(i+3);
+        theData[i-1].reached.push(i + 2);
+        theData[i-1].reached.push(i + 3);
     }
-    return {persons, forecast, reached};
+    /*
+
+    theData[i][keys[0]] = formGetTheData.get(`person${i}`);
+
+    for (const [key, value] of theData.entries()) {
+        /*if (!value[1]) {
+            //continue;
+
+}*/
+    return theData;
 }
-console.log(data())*/
+
+console.log(getTheData());
