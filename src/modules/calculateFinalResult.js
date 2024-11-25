@@ -1,5 +1,5 @@
 import {getPeople} from "./State.js";
-import {calculateResult} from "./calculateResult.js";
+
 
 export function calculateFinalResult() {
     const storedData = calculateResult();

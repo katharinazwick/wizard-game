@@ -1,21 +1,45 @@
 /*export let state = {
-    numberOfPeople: 2,
+    numberOfPeopleEventHandler: 2,
     newPeople: 1,
     players: [
     ]
 }*/
 
+let gameState = [];
+let numberOfPeople = 0;
+let numberOfRounds = 0;
 
-let numberOfPeople = 2;
 
 export function setPeople(value) {
+    gameState = [];
     numberOfPeople = parseInt(value, 10);
+    for (let i = 1; i <= numberOfPeople; i++) {
+        gameState.push({
+            name: "",
+            forecast: [],
+            reached: [],
+            result: [],
+            finalResult: ""
+        });
+    }
+    console.log(gameState);
 }
 
 export function getPeople() {
     return numberOfPeople;
 }
 
+export function getGameState() {
+    return gameState;
+}
+
+export function increaseNumberOfRound(){
+    numberOfRounds += 1;
+}
+
+export function getNumberOfRound(){
+    return numberOfRounds;
+}
 
 let storedData = [];
 

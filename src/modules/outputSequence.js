@@ -6,7 +6,7 @@ export function outputSequence() {
     const outputSequence = document.getElementById("outputSequence");
 
     if (outputSequence) {
-        outputSequence.textContent = `the next sequence is ${newPeople(" ")}`;
+        outputSequence.textContent = `the next sequence is ${newPeople}`;
     }
 }
 
@@ -15,3 +15,4 @@ const logButtonSequence = document.getElementById("logButtonSequence");
 if(logButtonSequence){
     logButtonSequence.addEventListener("click", outputSequence);
 }
+

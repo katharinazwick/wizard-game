@@ -1,10 +1,10 @@
-import {calculateResult} from "./calculateResult.js";
+
 import {calculateFinalResult} from "./calculateFinalResult.js";
 
 
 export function outputResult() {
     const finalResult = calculateFinalResult();
-    const outputFinalResult = document.getElementById("outputResult");
+    const outputFinalResult = document.getElementById("submitRoundEventHandler");
 
     if (outputFinalResult) {
         outputFinalResult.textContent = `final Result is: ${finalResult.join(" ")}`;

@@ -1,44 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wizard Calculator</title>
-  <!--strg + d => dupli-->
-  <link rel="stylesheet" href="styles/game.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wizard Calculator</title>
+    <!--strg + d => dupli-->
+    <link rel="stylesheet" href="styles/game.css">
 </head>
 <body>
 <div>
-  <h1>Wizard Calculator</h1>
-  <h2>let´s play a game (:</h2>
+    <h1>Wizard Calculator</h1>
+    <h2>let´s play a game (:</h2>
 
-  <form id="numberOfPeopleForm" class="numberOfPeopleForm">
-    <label>
-      <input placeholder="number of people" type="number" name="numberOfPeople">
-    </label>
-  </form>
+    <form id="numberOfPeopleForm" class="numberOfPeopleForm">
+        <label>
+            <input placeholder="number of people" type="number" name="numberOfPeople">
+        </label>
+    </form>
 
-  <p></p>
+    <p></p>
 
-  <form id="calculateSequenceForm" class="calculateSequenceForm">
-    <label>
-      <input placeholder="round" type="number" name="calculateSequence">
-    </label>
-  </form>
-  <div id="outputSequence">next Sequence is</div>
-  <button id ="logButtonSequence">click me</button>
 
-  <p></p>
-  <form id="getTheDataForm" class="getTheDataForm">
-  </form>
+    <form id="calculateSequenceForm" class="calculateSequenceForm">
+        <label>
+            <input placeholder="round" type="number" name="calculateSequence">
+        </label>
+    </form>
+    <div id="outputSequence">next Sequence is</div>
+    <button id="logButtonSequence">click me</button>
+    <p></p>
+    <button id="newRound">new round</button>
+    <p></p>
+    <form id="namesForm" class="namesForm">
+    </form>
+    <div id="getTheDataForm" class="getTheDataForm">
+    </div>
 
-  <div id="outputResult">final Result is coming soon...</div>
-  <button id ="logbutton">Result anzeigen</button>
+    <div id="outputResult">final Result is coming soon...</div>
+    <button id="logbutton">Result anzeigen</button>
 
 
 </div>
 <script type="module" src="modules/state.js"></script>
-<script type="module" src="modules/loopTheFields.js"></script>
 <script type="module" src="modules/index.js"></script>
 <script type="module" src="modules/outputArray.js"></script>
 <script type="module" src="modules/outputSequence.js"></script>
