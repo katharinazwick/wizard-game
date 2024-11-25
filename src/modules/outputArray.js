@@ -1,12 +1,18 @@
-import {calculateResult} from "./calculateResult";
+import {calculateResult} from "./calculateResult.js";
+import {calculateFinalResult} from "./calculateFinalResult.js";
 
 
-function outputResult() {
-    const theData = calculateResult();
-    const outputRes = document.getElementById("outputResult");
+export function outputResult() {
+    const finalResult = calculateFinalResult();
+    const outputFinalResult = document.getElementById("outputResult");
 
-    // Array als Text ausgeben
-    outputRes.textContent = `final Result is: ${theData.join(", ")}`;
+    if (outputFinalResult) {
+        outputFinalResult.textContent = `final Result is: ${finalResult.join(" ")}`;
+    }
 }
 
-window.outputResult = outputResult;
+const logbutton = document.getElementById("logbutton");
+
+if(logbutton){
+    logbutton.addEventListener("click", outputResult);
+}

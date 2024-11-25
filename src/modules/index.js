@@ -1,6 +1,7 @@
 import {numberOfPeople} from "./getNumberOfPeople.js";
 import {getTheData} from "./getTheData.js";
-import {calculateResult} from "./calculateResult.js";
+import {calculateFinalResult} from "./calculateFinalResult.js";
+import {calculateSequence} from "./calculateSequence.js";
 
 const numberOfPeopleForm = document.getElementById("numberOfPeopleForm");
 //const numberOfPeopleInputs = document.querySelectorAll("input[name=numberOfPeople]");
@@ -15,7 +16,8 @@ for (let input of getTheDataInputs) {
     input.addEventListener("input", getTheData);
 }
 
-const outputFinalResulForm = document.getElementById("outputFinalResulForm");
-for (let element of outputFinalResulForm) {
-    element.addEventListener("submit", calculateResult());
+const calculateSequenceForm = document.getElementById("calculateSequenceForm");
+const calculateSequenceInputs = calculateSequenceForm.querySelectorAll("input");
+for (let input of calculateSequenceInputs) {
+    input.addEventListener("input", calculateSequence);
 }

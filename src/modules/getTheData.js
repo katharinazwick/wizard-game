@@ -5,7 +5,6 @@ export function getTheData(event) {
     const input = event.target;
     const formGetTheData = new FormData(input.form);
     const theData = [];
-    let a;
 
     for (let i = 1; i <= people; i++) {
         theData.push({
@@ -13,16 +12,23 @@ export function getTheData(event) {
             forecast: [],
             reached: [],
             result: [],
-            finalResult: []
+            finalResult:""
         });
 
         theData[i - 1].name = (formGetTheData.get(`person${i}`));
         //let keys = Object.keys(theData[i]); //["name", "forecast"...]
 
-        for (let p = 1; p <= 4; p++) {
-            theData[i - 1].forecast.push(parseInt(formGetTheData.get(`forecast${i}${p}`) || 0)); //11 //[keys[1]]
-            theData[i - 1].reached.push(parseInt(formGetTheData.get(`reached${i}${p}`) || 0)); //[keys[2]]
+        for (const [key, value] of Object.entries(theData)) {
+            if(!value) {
+            } else {
+                for (let p = 1; p <= 4; p++) {
+                    theData[i - 1].forecast.push(parseInt(formGetTheData.get(`forecast${i}${p}`) || 0)); //11 //[keys[1]]
+                    theData[i - 1].reached.push(parseInt(formGetTheData.get(`reached${i}${p}`) || 0)); //[keys[2]]
+                    //without zero i cant change it in a string
+                }
+            }
         }
+
         /*for (const [key, value] of theData.entries()) {
                      /*if (!value[1]) {
                          //continue;

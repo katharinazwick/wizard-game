@@ -1,6 +1,6 @@
 /*export let state = {
     numberOfPeople: 2,
-    currentRound: 1,
+    newPeople: 1,
     players: [
     ]
 }*/
@@ -25,4 +25,14 @@ export function setTheData(data) {
 
 export function getTheData() {
     return storedData;
+}
+
+let newPeople = 1;
+
+export function setCurrentRound(value) {
+    newPeople = value;
+}
+
+export function getCurrentRound() {
+    return newPeople;
 }
