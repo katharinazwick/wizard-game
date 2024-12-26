@@ -29,3 +29,4 @@ export function calculateSequence(event) {
     console.log(newPeople);
     return newPeople;
 }
+

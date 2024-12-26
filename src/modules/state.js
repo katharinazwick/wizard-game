@@ -1,30 +1,38 @@
-let gameState = [];
+window.gameState = [];
 let numberOfPeople = 0;
 
 let numberOfRounds = 0;
 
 let newPeople = 1;
 
-let player = [];
+window.player = [];
 
 //soll das so bleiben weil die daten ja jetzt in players sind
 export function setPeople(value) {
-    gameState = [];
+    window.gameState = [];
     numberOfPeople = parseInt(value, 10);
-    /*for (let i = 1; i <= numberOfPeople; i++) {
-        gameState.push({
+    for (let i = 1; i <= numberOfPeople; i++) {
+        window.gameState.push({
             name: "",
             forecast: [],
             reached: [],
             intermediateResult: [],
-            finalResult: ""
+            finalResult: 0
         });
-    }*/
-    console.log(gameState);
+    }
+
+}
+
+export function setGameState (data){
+    window.gameState = {...data};
 }
 
 export function getPeople() {
     return numberOfPeople;
+}
+
+export function getGameState() {
+    return window.gameState;
 }
 
 export function increaseNumberOfRound(){
@@ -44,10 +52,10 @@ export function getCurrentRound() {
 }
 
 export function setPlayer(data){
-    player = {...data};
+    window.player = {...data};
     console.log(player);
 }
 
 export function getplayer () {
-    return player;
+    return window.player;
 }

@@ -12,8 +12,8 @@ export function generateNameFields() {
     for (let i = 1; i <= numberOfPeople; i++) {
         const nameInput = document.createElement('input');
         nameInput.type = 'text';
-        nameInput.name = `name${i}`;
-        nameInput.placeholder = `name${i}`
+        nameInput.name = `name-${i}`;
+        nameInput.placeholder = `name-${i}`
         nameInput.size = 15
 
         namesForm.appendChild(nameInput);

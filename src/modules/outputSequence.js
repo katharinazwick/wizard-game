@@ -1,5 +1,6 @@
 import {getCurrentRound} from "./state.js";
 
+//die berechnete Sequenz wird auf Knopfdruck ausgegeben
 
 export function outputSequence() {
     const newPeople = getCurrentRound();

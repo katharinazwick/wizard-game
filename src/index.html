@@ -7,10 +7,11 @@
     <!--strg + d => dupli-->
     <link rel="stylesheet" href="styles/game.css">
 </head>
+
 <body>
 <div>
     <h1>Wizard Calculator</h1>
-    <h2>let´s play a game (:</h2>
+    <h2></h2>
 
     <form id="numberOfPeopleForm" class="numberOfPeopleForm">
         <label>
@@ -20,6 +21,17 @@
 
     <p></p>
 
+    <form id="namesForm" class="namesForm">
+    </form>
+
+    <div id="getTheDataForm" class="getTheDataForm">
+    </div>
+
+    <button id="newRound">new round</button>
+
+    <!--platzhalter-->
+    <div id="outputResult">final Result is coming soon...</div>
+    <button id="logbutton">Result anzeigen</button>
 
     <form id="calculateSequenceForm" class="calculateSequenceForm">
         <label>
@@ -28,19 +40,8 @@
     </form>
     <div id="outputSequence">next Sequence is</div>
     <button id="logButtonSequence">click me</button>
-    <p></p>
-    <button id="newRound">new round</button>
-    <p></p>
-    <form id="namesForm" class="namesForm">
-    </form>
-    <div id="getTheDataForm" class="getTheDataForm">
-    </div>
-
-    <div id="outputResult">final Result is coming soon...</div>
-    <button id="logbutton">Result anzeigen</button>
-
-
 </div>
+
 <script type="module" src="modules/state.js"></script>
 <script type="module" src="modules/index.js"></script>
 <script type="module" src="modules/outputArray.js"></script>
