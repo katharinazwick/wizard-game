@@ -1,19 +1,24 @@
-import {getPeople} from "./State.js";
+import {getplayer} from "./State.js";
 
 
 export function calculateFinalResult() {
-    const storedData = calculateResult();
-    const people = getPeople();
+    const player = getplayer();
+    console.log(player);
 
-    for (let i = 0; i < people; i++) { //finalResult ausrechnen
-        storedData[i].finalResult = 0;
-        for (let p in storedData[i].result) {
-            storedData[i].finalResult = storedData[i].finalResult + storedData[i].result[p];
-        }
+    /*player {
+    {
+    forecast
+    reached
+    intermediateResult
+    }
+    }*/
+
+    /*for (let key in player) {
+        player[key].result += player[key].intermediateResult;
     }
 
-    console.log(storedData);
-    return storedData;
+    console.log(player);*/
+    return player;
 }
 
 
