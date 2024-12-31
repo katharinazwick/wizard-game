@@ -1,32 +1,56 @@
-import {getPeople, setCurrentRound} from "./state.js";
+import {getPeople, setCurrentRound, getNameOfThePeople} from "./state.js";
+import {getName} from "./getNameOfThePlayer.js";
 
 export function calculateSequence(event) {
     const input = event.target;
     const formCalculateSequence = new FormData(input.form);
-    const currentRound = formCalculateSequence.get("calculateSequence");
+    let currentRound = formCalculateSequence.get("calculateSequence");
     const people = getPeople();
+    getName();
+    const name = getNameOfThePeople();
 
     const peopleSequence = [];
     let newPeople = [];
 
-    for (let i = 1; i <= people; i++) {
-        peopleSequence.push("person" + i);
-    }
-    for (let i = 0; i <= 10; i++) {
-        if (currentRound === 1 + i * people) {
-            return peopleSequence
-        } else {
-            const x = currentRound - 1 - i * people;
-            newPeople = peopleSequence.slice(x);
-            const newPersonsEnd = peopleSequence.slice(0, x).join();
-            newPeople.push(newPersonsEnd);
-            if (x <= 3) {
-                break;
-            }
+    const outputSequence = document.getElementById("outputSequence");
+
+    if (outputSequence) {
+        if (currentRound <= 0 || currentRound > 40) {
+            outputSequence.innerText = "I guess this is not possible";
+            return;
         }
     }
+
+    for (let i = 0; i < name.length; i++) {
+        if (name[i] === "") {
+            peopleSequence.push("person" + (i + 1)); //person1 person2
+        } else {
+            peopleSequence.push(name[i]);
+        }
+    }
+
+    while (currentRound > people) {
+        currentRound -= people;
+    }
+
+    if (currentRound === 1) {
+        newPeople = peopleSequence;
+    } else {
+        for (let i = currentRound - 1; i < people; i++) {
+            newPeople.push(peopleSequence[i]);
+        }
+        for (let i = 0; i < currentRound - 1; i++) {
+            newPeople.push(peopleSequence[i])
+        }
+    }
+
     setCurrentRound(newPeople);
-    console.log(newPeople);
+
+    if (outputSequence) {
+        outputSequence.innerText = `the next sequence is ${newPeople}`;
+    }
+
     return newPeople;
 }
+
 

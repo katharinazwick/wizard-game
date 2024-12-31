@@ -63,3 +63,25 @@ for (let element of pointsForGameForm) {
  export function getReached() {
      return rdData;
  }
+ bei name und result einmal in html ne id und dann in js ne neue warum geht ohne
+
+
+ /*import {getCurrentRound} from "./state.js";
+
+ //die berechnete Sequenz wird auf Knopfdruck ausgegeben
+
+ export function outputSequence() {
+     const newPeople = getCurrentRound();
+     const outputSequence = document.getElementById("outputSequence");
+
+     if (outputSequence) {
+         outputSequence.textContent = `the next sequence is ${newPeople}`;
+     }
+ }
+
+ const logButtonSequence = document.getElementById("logButtonSequence");
+
+ if(logButtonSequence){
+     logButtonSequence.addEventListener("click", outputSequence);
+ }
+ */

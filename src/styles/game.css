@@ -3,17 +3,106 @@ body {
 
     h1 {
         color: red;
+        text-decoration: 4px underline;
+        font-style: italic;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        text-align: center;
     }
 
-    h2 {
+    #startText {
+        border: 2px solid white;
+        background: url("images/lake.jpg") no-repeat center center;
+        background-size: cover;
+        color: rebeccapurple;
+        text-align: center;
+    }
+
+    #rules {
         color: red;
+        border-radius: 5px;
+        background-color: transparent;
     }
-    table{
-        color: white;
-        padding: 10px 15px;
-        font-size: 20px;
-        width: min-content;
+
+    .numberOfPeopleForm {
+        inline-size: 130px;
+    }
+
+    #newRound {
+        color: green;
+    }
+
+    .sequence {
+        color: blue;
 
     }
 
+    .uebung {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .nameField {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        flex-wrap: nowrap;
+    }
+
+    .divForAll{
+    }
+    .inputField {
+        /*border: 4px solid black;*/
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        background: url("images/wald.jpg") no-repeat center center;
+        background-size: cover;
+        /*padding-left: 10px;
+        right: 10px;
+        padding-top: 10px;*/
+        padding: 5px 10px;
+        margin: 30px 0;
+    }
+
+    .perPerson{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    #logbutton {
+        color: aqua;
+        display: flex;
+        /*column => Hauptachse von oben nach unten, row => Hauptachse von links nach rechts
+        column-reserve => spiegeln/von unten nach oben
+        flex-direction(bei row): flex-start => links / flex-end => rechts / center => mitte
+        justify-content: space-between => ganz links bis ganz rechts mit gleichen Abständen
+        j-c: space-around => kleiner Rand rechts und links und gleicher Abstand dazwischen
+        j-c: space-evenly => gleicher Abstand von überall
+        align-items(entgegen gesetze Achse zur Hauptachse: ...
+        flex-wrap: rap => elemente bleiben gleich groß / norap => elemente passen sich an seite an
+        */
+        flex-direction: column;
+
+    }
+
+    .outputResult {
+        color: aqua;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    #inputSequence {
+        inline-size: 60px;
+    }
+
+    #outputSequence {
+        display: inline;
+    }
+
+    table, th, td, caption {
+        border: thin solid #a0a0a0;
+    }
 }

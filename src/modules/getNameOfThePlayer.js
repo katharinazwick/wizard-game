@@ -1,15 +1,17 @@
-import {getGameState, setGameState} from './state.js';
+import {setNameOfThePeople} from './state.js';
 
-export function getName(event) {
-    const gameState = getGameState()
+export function getName() {
+    const form = document.getElementById("namesForm");
+    const inputs = form.querySelectorAll("input[type='text']");
 
-    const formData = new FormData(event.target);
+    const arrayTemp = [];
 
-    for (let [key, value] of formData.entries()) {
-        const splitKey = key.split("-",); //[name,1]
-        gameState[splitKey - 1].name = value;
+    for (let input of inputs) {
+        const value = input.value.trim();
+        arrayTemp.push(value);
     }
 
-    setGameState(gameState);
-    return gameState;
+    setNameOfThePeople(arrayTemp);
+    return arrayTemp;
 }
+

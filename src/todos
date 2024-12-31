@@ -1,10 +1,26 @@
-output Array funktioniert nicht
-die ausgabe im allgemeinen vom objekt und von dem result
+result felder outputfield
 
-die namen importieren
+den bug mit ändern der personen und den felder beheben
 
-das final result berechnen
+in css formatieren den platz
 
- den bug mit ändern der personen und den felder beheben
+die tabelle um das spielfeld
 
-in css formatieren
+startseite weg (display none)
+leiste am rand wo link zu rules drin ist
+
+menu bar => leiste
+
+pop up für endgame
+
+fisnish nur wenn runde fertig
+
+flex box!!!!!!!!!!!!!!!!!!!!!!!!!!!!WUNDERMITTEL =>  wenn du das gut kannst, dann kannst du eigentlich alles machen
+
+submit verhinder preventdefault / preventpropagation bsp bei number perople
+
+in welcher runde bin ich?
+
+textContent erfasst den Inhalt aller Elemente, einschließlich <script> - und <style> -Elementen. Im Gegensatz dazu zeigt innerText nur "menschlich lesbare" Element
+
+daten speichern geht nicht haha pech gehabt

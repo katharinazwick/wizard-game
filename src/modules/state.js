@@ -1,5 +1,6 @@
 window.gameState = [];
 let numberOfPeople = 0;
+window.nameOfThePeople = [];
 
 let numberOfRounds = 0;
 
@@ -11,6 +12,9 @@ window.player = [];
 export function setPeople(value) {
     window.gameState = [];
     numberOfPeople = parseInt(value, 10);
+    if (numberOfPeople>4){
+        throw ("No much of people");
+    }
     for (let i = 1; i <= numberOfPeople; i++) {
         window.gameState.push({
             name: "",
@@ -24,7 +28,7 @@ export function setPeople(value) {
 }
 
 export function setGameState (data){
-    window.gameState = {...data};
+    window.gameState = [...data];
 }
 
 export function getPeople() {
@@ -33,6 +37,14 @@ export function getPeople() {
 
 export function getGameState() {
     return window.gameState;
+}
+
+export function setNameOfThePeople(data){
+    window.nameOfThePeople = [...data];
+}
+
+export function getNameOfThePeople() {
+    return window.nameOfThePeople;
 }
 
 export function increaseNumberOfRound(){
@@ -53,7 +65,6 @@ export function getCurrentRound() {
 
 export function setPlayer(data){
     window.player = {...data};
-    console.log(player);
 }
 
 export function getplayer () {
