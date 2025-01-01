@@ -10,70 +10,70 @@ export function generateInputFields() {
     form.className = "inputField";
     form.id = `form-${round}`;
 
-   // const divForAll = document.createElement("divForAll")
-    //{
-        for (let i = 1; i <= numberOfPeople; i++) {
+    const divLine = document.createElement("div")
+    divLine.id = "containerInput";
 
-            const divRound = document.createElement("div");
-            {
-                const forecastInput = document.createElement('input');
-                forecastInput.type = 'text';
-                forecastInput.name = `forecast-${round}-${i}`;
-                forecastInput.placeholder = `forecast-${round}-${i}`
-                forecastInput.size = 10;
-                forecastInput.style.border = "2px solid black";
-                forecastInput.style.margin = "0 10px"
-                forecastInput.style.padding = "2px 2px"
-                //forecastInput.style.color= "grey"
-                forecastInput.style.borderRadius = "4px";
+    for (let i = 1; i <= numberOfPeople; i++) {
 
-                const reachedInput = document.createElement('input');
-                reachedInput.type = 'text';
-                reachedInput.name = `reached-${round}-${i}`;
-                reachedInput.placeholder = `reached-${round}-${i}`
-                reachedInput.size = 10;
-                reachedInput.style.border = "2px solid black";
-                reachedInput.style.margin = "0 10px"
-                reachedInput.style.padding = "2px 2px"
-                reachedInput.style.borderRadius = "4px";
+        const divRound = document.createElement("div");
+        divRound.id = "child1";
 
-                const resultDiv = document.createElement('div');
-                resultDiv.id = `result-${round}-${i}`;
-                resultDiv.style.display = "inline-block";
-                resultDiv.innerText = "result";
-                resultDiv.style.border = "2px solid black";
-                resultDiv.style.margin = "0 10px"
-                resultDiv.style.padding = "2px 2px"
-                resultDiv.style.borderRadius = "4px";
-                resultDiv.style.background = "white";
-                resultDiv.style.color = "grey";
+        const forecastInput = document.createElement('input');
+        forecastInput.type = 'text';
+        forecastInput.name = `forecast-${round}-${i}`;
+        forecastInput.placeholder = `forecast-${round}-${i}`
+        forecastInput.size = 10;
+        forecastInput.style.border = "2px solid black";
+        forecastInput.style.margin = "0 10px"
+        forecastInput.style.padding = "2px 2px"
+        //forecastInput.style.color= "grey"
+        forecastInput.style.borderRadius = "4px";
 
-                form.appendChild(forecastInput);
-                form.appendChild(reachedInput);
-                form.appendChild(resultDiv);
-            }
-            divRound.class = "perPerson";
-            form.appendChild(divRound)
+        const reachedInput = document.createElement('input');
+        reachedInput.type = 'text';
+        reachedInput.name = `reached-${round}-${i}`;
+        reachedInput.placeholder = `reached-${round}-${i}`
+        reachedInput.size = 10;
+        reachedInput.style.border = "2px solid black";
+        reachedInput.style.margin = "0 10px"
+        reachedInput.style.padding = "2px 2px"
+        reachedInput.style.borderRadius = "4px";
 
+        const resultDiv = document.createElement('div');
+        resultDiv.id = `result-${round}-${i}`;
+        resultDiv.style.display = "inline-block";
+        resultDiv.innerText = "result";
+        resultDiv.style.border = "2px solid black";
+        resultDiv.style.margin = "0 10px"
+        resultDiv.style.padding = "2px 2px"
+        resultDiv.style.borderRadius = "4px";
+        resultDiv.style.background = "white";
+        resultDiv.style.color = "grey";
 
-        }
-   // }
-    //getTheDataForm.appendChild(divForAll);
+        divRound.appendChild(forecastInput);
+        divRound.appendChild(reachedInput);
+        divRound.appendChild(resultDiv);
+        divLine.appendChild(divRound);
+    }
 
-    form.style.border = "2px solid black";
+    const divFinish = document.createElement("div");
+    divFinish.id ="child2";
+
     const finishCurrentRoundButton = document.createElement('button');
     finishCurrentRoundButton.innerText = 'Finish';
     finishCurrentRoundButton.style.border = "2px solid black";
     finishCurrentRoundButton.style.borderRadius = "4px";
     finishCurrentRoundButton.style.background = "transparent"//"rgba(30,40,35,0.8)";
     finishCurrentRoundButton.type = "submit";
-    //finishCurrentRoundButton.style.textAlign ="end"
 
+    divFinish.appendChild(finishCurrentRoundButton);
 
-    form.appendChild(finishCurrentRoundButton);
+    divLine.appendChild(divFinish);
+
+    form.appendChild(divLine);
+
     form.addEventListener('submit', createObjectWithFaR);
     form.addEventListener('submit', createNewRoundEventHandler)
 
     getTheDataForm.appendChild(form);
-    //const lineBreak = document.createElement("br");
 }

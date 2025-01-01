@@ -7,9 +7,13 @@ namesForm.className = "nameField"
 
     namesForm.replaceChildren();
 
-//const divForAll = document.createElement("divForAll")
-  //  {
+const divLine = document.createElement("div");
+divLine.id = "containerInputs2";
+
         for (let i = 1; i <= numberOfPeople; i++) {
+            const divRound = document.createElement("div");
+            divRound.id = "child11";
+
             const nameInput = document.createElement('input');
             nameInput.type = 'text';
             nameInput.name = `name-${i}`;
@@ -19,9 +23,12 @@ namesForm.className = "nameField"
             //nameInput.style.margin ="0 10px"
             //nameInput.style.padding = "2px 2px"
             //nameInput.style.borderRadius = "4px";
-            namesForm.appendChild(nameInput);
+            divRound.appendChild(nameInput);
+            divLine.appendChild(divRound);
         }
-        //divForAll.className ="divForAll"
-    //}
-    //namesForm.appendChild(divForAll);
+
+        const divFinish = document.createElement("div");
+        divFinish.id = "child21";
+    namesForm.appendChild(divLine);
+       namesForm.appendChild(divFinish);
 }
