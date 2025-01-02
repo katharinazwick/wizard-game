@@ -21,43 +21,45 @@
 
     <p></p>
 
-    <form id="startText">
-        <p> Vorraussetzung für das Spiel ist ein vollständiges Wizard Kartenset.</p>
-        <p> Starten tust du mit der Eingabe der Personenanzahl.</p>
-        <p> Jede Runde beendest du mit den "Finish" Button. </p>
-        <p> Du kannst dir jederzeit den Gesamtspielstand ausgeben. </p>
-        <p> Viel Spaß!</p>
-        <button id="rules">rules</button>
-        <p></p>
-    </form>
+    <div id="containerText">
+        <div id="startText">
+            <p class="childText">Für dieses Spiel benötigst du ein Wizard Kartenset.</p>
+            <p class="childText">Der Start erfolgt durch die Eingabe der Spieler-/Spielerinnenanzahl.</p>
+            <p class="childText">Viel Spaß!</p>
+        </div>
+    </div>
 
     <p></p>
 
     <form id="namesForm" class="namesForm">
     </form>
 
+    <p></p>
+
     <div id="getTheDataForm" class="getTheDataForm">
     </div>
+
+    <p></p>
 
     <form id="outputResult" class="outputResult">
     </form>
 
-    <!--<button id="newRound">new round</button>-->
+    <!--<Hauptteil abgeschlossen>-->
 
+    <div id="leeresFeld">
+    </div>
 
     <button id="logbutton">Result anzeigen</button>
+    <button id="endGameButton">end Game</button>
 
-    <form id="calculateSequenceForm" class="sequence">
-        <label>
-            <input id="inputSequence" placeholder="round" type="number" name="calculateSequence">
-        </label>
-        <div id="outputSequence" class="sequence">Sequence is:</div>
-    </form>
+    <p></p>
+
+    <div id="outputSequence" class="sequence">new Sequence is:</div>
+
 </div>
 
 
 <script type="module" src="modules/state.js"></script>
 <script type="module" src="modules/index.js"></script>
-<script type="module" src="modules/outputArray.js"></script>
 </body>
 </html>

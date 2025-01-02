@@ -20,6 +20,10 @@ export function createObjectWithFaR(event) {
 
         if (!originalPlayerStateObject) {
             originalPlayerStateObject = {}
+        } //wozu??
+
+        if (!value) {
+            throw ("missing Input")
         }
 
         if (key.startsWith("forecast")) {
@@ -35,11 +39,10 @@ export function createObjectWithFaR(event) {
         let temp = null;
         if (player[key].forecast === player[key].reached) {
             player[key].intermediateResult = pointsForForecast + pointsForStich * player[key].reached;
-            continue;
+        } else {
+            const pointsForWrong = Math.abs((player[key].forecast - player[key].reached) * 10);
+            player[key].intermediateResult = pointsForStich * player[key].reached - pointsForWrong;
         }
-        const pointsForWrong = Math.abs((player[key].forecast - player[key].reached) * 10);
-        player[key].intermediateResult = pointsForStich * player[key].reached - pointsForWrong;
-
         gameState[key - 1].forecast.push(player[key].forecast);
         gameState[key - 1].reached.push(player[key].reached);
         temp = gameState[key - 1].intermediateResult
@@ -63,6 +66,6 @@ export function createObjectWithFaR(event) {
         }
     }*/
 
-    return {player,gameState};
+    return {player, gameState};
 }
 

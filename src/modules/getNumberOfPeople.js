@@ -7,9 +7,12 @@ export function numberOfPeopleEventHandler(event) {
     //const input = event.target;
     //const formNumberOfPeople = new FormData(input.form);
     // const numberOfPeople = formNumberOfPeople.get("numberOfPeopleEventHandler");
+
     setPeople(event.target.value);
-    //setPeople(2)
     generateNameFields();
     generateInputFields();
     createOutputFields();
+
+    const layout = document.getElementById("startText");
+    layout.style.display = "none";
 }

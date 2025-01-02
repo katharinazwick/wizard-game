@@ -2,9 +2,9 @@ window.gameState = [];
 let numberOfPeople = 0;
 window.nameOfThePeople = [];
 
-let numberOfRounds = 0;
+let count = 0;
 
-let newPeople = 1;
+let numberOfRounds = 0;
 
 window.player = [];
 
@@ -12,8 +12,8 @@ window.player = [];
 export function setPeople(value) {
     window.gameState = [];
     numberOfPeople = parseInt(value, 10);
-    if (numberOfPeople>4){
-        throw ("No much of people");
+    if (numberOfPeople>4 || numberOfPeople <= 0 || isNaN(numberOfPeople)) {
+        throw ("wrong Input");
     }
     for (let i = 1; i <= numberOfPeople; i++) {
         window.gameState.push({
@@ -53,14 +53,6 @@ export function increaseNumberOfRound(){
 
 export function getNumberOfRound(){
     return numberOfRounds;
-}
-
-export function setCurrentRound(value) {
-    newPeople = value;
-}
-
-export function getCurrentRound() {
-    return newPeople;
 }
 
 export function setPlayer(data){

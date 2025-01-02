@@ -15,7 +15,7 @@ if(endGame){
 }*/
 
 
-function calculateSequence() {
+/*function calculateSequence() {
     let currentRound = 4;
     const people = 4;
 
@@ -44,4 +44,14 @@ function calculateSequence() {
     return newPeople;
 }
 
-console.log(calculateSequence());
+console.log(calculateSequence());*/
+
+
+const i = 1;
+if(i%3===0){
+    console.log("lala");
+}
+const a = 1;
+if (isNaN(a)){
+    console.log("xxx")
+}

@@ -1,6 +1,5 @@
 import {getplayer, getGameState, getNameOfThePeople} from "./State.js";
 import {getName} from "./getNameOfThePlayer.js";
-import {createObjectWithFaR} from "./createObjectWithFaR.js";
 
 //erstellt das komplette Objekt mit name, forecast, reached, intermediateResult, result in einem Array
 
@@ -12,11 +11,11 @@ export function calculateFinalResult() {
 
     for (let key in player) {
         console.log(key)
-        /*if (nameOfThePeople[key - 1] === "") {
+        if (nameOfThePeople[key - 1] === "") {
             gameState[key - 1].name = "person" + key;
         } else {
             gameState[key - 1].name = nameOfThePeople[key - 1]
-        }*/
+        }
         gameState[key - 1].finalResult = 0;
         for (let i = 0; i < gameState[key-1].intermediateResult.length; i++) {
             gameState[key - 1].finalResult += gameState[key-1].intermediateResult[i];
@@ -27,7 +26,6 @@ export function calculateFinalResult() {
             outputSequence.innerText = gameState[key-1].finalResult;
         }
     }
-    console.log(gameState);
     return gameState;
 }
 

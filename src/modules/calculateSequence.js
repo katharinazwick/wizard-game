@@ -1,10 +1,10 @@
-import {getPeople, setCurrentRound, getNameOfThePeople} from "./state.js";
+import {getPeople, getNameOfThePeople, getNumberOfRound} from "./state.js";
 import {getName} from "./getNameOfThePlayer.js";
 
-export function calculateSequence(event) {
-    const input = event.target;
-    const formCalculateSequence = new FormData(input.form);
-    let currentRound = formCalculateSequence.get("calculateSequence");
+export function calculateSequence() {
+    /*const input = event.target;
+    const formCalculateSequence = new FormData(input.form);*/
+    let currentRound = getNumberOfRound() + 1;
     const people = getPeople();
     getName();
     const name = getNameOfThePeople();
@@ -12,14 +12,14 @@ export function calculateSequence(event) {
     const peopleSequence = [];
     let newPeople = [];
 
-    const outputSequence = document.getElementById("outputSequence");
+    /*const outputSequence = document.getElementById("outputSequence");
 
     if (outputSequence) {
         if (currentRound <= 0 || currentRound > 40) {
             outputSequence.innerText = "I guess this is not possible";
             return;
         }
-    }
+    }*/
 
     for (let i = 0; i < name.length; i++) {
         if (name[i] === "") {
@@ -44,10 +44,10 @@ export function calculateSequence(event) {
         }
     }
 
-    setCurrentRound(newPeople);
+    const outputSequence = document.getElementById("outputSequence");
 
     if (outputSequence) {
-        outputSequence.innerText = `the next sequence is ${newPeople}`;
+        outputSequence.innerText = `new Sequence is: ${newPeople}`;
     }
 
     return newPeople;
