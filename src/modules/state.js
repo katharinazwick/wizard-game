@@ -8,6 +8,8 @@ let numberOfRounds = 0;
 
 window.player = [];
 
+window.finalResult = [];
+
 //soll das so bleiben weil die daten ja jetzt in players sind
 export function setPeople(value) {
     window.gameState = [];
@@ -61,4 +63,12 @@ export function setPlayer(data){
 
 export function getplayer () {
     return window.player;
+}
+
+export function setResult (data) {
+    window.Result = [...data];
+}
+
+export function getResult() {
+    return window.Result;
 }

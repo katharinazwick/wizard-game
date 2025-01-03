@@ -58,14 +58,6 @@ export function createObjectWithFaR(event) {
     setPlayer(player);
     setGameState(gameState);
 
-    /*for (let i in player) {
-        const outputSequence = document.getElementById(`result-${round}-${i}`);
-
-        if (outputSequence) {
-            outputSequence.innerText = player[i].intermediateResult;
-        }
-    }*/
-
     return {player, gameState};
 }
 

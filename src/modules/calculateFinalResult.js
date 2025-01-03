@@ -1,4 +1,4 @@
-import {getplayer, getGameState, getNameOfThePeople} from "./State.js";
+import {getplayer, getGameState, getNameOfThePeople, setResult} from "./State.js";
 import {getName} from "./getNameOfThePlayer.js";
 
 //erstellt das komplette Objekt mit name, forecast, reached, intermediateResult, result in einem Array
@@ -10,7 +10,6 @@ export function calculateFinalResult() {
     const nameOfThePeople = getNameOfThePeople();
 
     for (let key in player) {
-        console.log(key)
         if (nameOfThePeople[key - 1] === "") {
             gameState[key - 1].name = "person" + key;
         } else {
@@ -26,6 +25,7 @@ export function calculateFinalResult() {
             outputSequence.innerText = gameState[key-1].finalResult;
         }
     }
+    setResult (gameState);
     return gameState;
 }
 

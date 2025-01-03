@@ -23,6 +23,7 @@ export function createOutputFields() {
             border: "1px solid grey",
             display: "flex",
             flexDirection: "row",
+//nicht mittig
             flexWrap: "nowrap",
             color: "grey",
             width:"33.33%",

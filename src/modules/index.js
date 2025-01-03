@@ -10,9 +10,9 @@ for (let input of numberOfPeopleInputs) {
     input.addEventListener("input", numberOfPeopleEventHandler);
 }
 
-const logbutton = document.getElementById("logbutton");
-if(logbutton){
-    logbutton.addEventListener("click", calculateFinalResult);
+const resultButton = document.getElementById("resultButton");
+if(resultButton){
+    resultButton.addEventListener("click", calculateFinalResult);
 }
 
 const endGameButton = document.getElementById("endGameButton");

@@ -5,8 +5,6 @@ menu bar => leiste
 
 pop up für endgame
 
-submit verhinder preventdefault / preventpropagation bsp bei number perople
-
 ///////////////////
 
 textContent erfasst den Inhalt aller Elemente, einschließlich <script> - und <style> -Elementen.
@@ -33,3 +31,8 @@ innerText erfasst nur "menschlich lesbare" Element
             padding: 5px 10px;
             margin: 30px 0;
         }
+
+const form = document.getElementById("numberOfPeopleForm");
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+    }) verhindert neuladen der Seite

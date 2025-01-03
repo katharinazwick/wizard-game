@@ -46,12 +46,7 @@ if(endGame){
 
 console.log(calculateSequence());*/
 
+let a = 1;
+let b = 2;
 
-const i = 1;
-if(i%3===0){
-    console.log("lala");
-}
-const a = 1;
-if (isNaN(a)){
-    console.log("xxx")
-}
+console.log(a+b);

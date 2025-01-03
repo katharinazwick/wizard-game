@@ -3,7 +3,7 @@ import {createObjectWithFaR} from "./createObjectWithFaR.js";
 import {createNewRoundEventHandler} from "./createNewRoundEventHandler.js";
 import {calculateSequence} from "./calculateSequence.js";
 
-export function generateInputFields(event) {
+export function generateInputFields() {
     const numberOfPeople = getPeople();
     const round = getNumberOfRound();
     const getTheDataForm = document.getElementById("getTheDataForm");
@@ -28,7 +28,6 @@ export function generateInputFields(event) {
         forecastInput.type = 'text';
         forecastInput.name = `forecast-${round}-${i}`;
         forecastInput.placeholder = `forecast`
-        //forecastInput.size = 8;
         Object.assign(forecastInput.style, {
             border: "1px solid grey",
             textAlign: "center",
@@ -43,7 +42,6 @@ export function generateInputFields(event) {
         reachedInput.type = 'text';
         reachedInput.name = `reached-${round}-${i}`;
         reachedInput.placeholder = `reached`
-        //reachedInput.size = 8;
         Object.assign(reachedInput.style, {
             border: "1px solid grey",
             textAlign: "center",
@@ -64,8 +62,6 @@ export function generateInputFields(event) {
             color: "grey",
             width: "33.33%",
         });
-        //resultDiv.style.background = "white";
-        //resultDiv.style.height = "18px"
 
         const divEmpty = document.createElement("div");
         divEmpty.style.width = "5px";
@@ -88,7 +84,6 @@ export function generateInputFields(event) {
     Object.assign(finishCurrentRoundButton.style, {
         border: "1px solid grey",
     })
-    //"rgba(30,40,35,0.8)";
 
     divFinish.appendChild(finishCurrentRoundButton);
 
@@ -111,6 +106,6 @@ export function generateInputFields(event) {
     function deleteFinish() {
         finishCurrentRoundButton.style.display = "none";
     }
-
+    
     getTheDataForm.appendChild(form);
 }

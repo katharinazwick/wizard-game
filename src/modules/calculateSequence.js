@@ -2,8 +2,6 @@ import {getPeople, getNameOfThePeople, getNumberOfRound} from "./state.js";
 import {getName} from "./getNameOfThePlayer.js";
 
 export function calculateSequence() {
-    /*const input = event.target;
-    const formCalculateSequence = new FormData(input.form);*/
     let currentRound = getNumberOfRound() + 1;
     const people = getPeople();
     getName();
@@ -11,15 +9,6 @@ export function calculateSequence() {
 
     const peopleSequence = [];
     let newPeople = [];
-
-    /*const outputSequence = document.getElementById("outputSequence");
-
-    if (outputSequence) {
-        if (currentRound <= 0 || currentRound > 40) {
-            outputSequence.innerText = "I guess this is not possible";
-            return;
-        }
-    }*/
 
     for (let i = 0; i < name.length; i++) {
         if (name[i] === "") {

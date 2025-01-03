@@ -9,22 +9,25 @@ body {
         letter-spacing: 2px;
         text-align: center;
     }
-#containerText{
-display: flex;
-flex-direction: row;
-justify-content: center;
-    flex-wrap: nowrap;
-    height: 240px;
-    background: url("images/wald.jpg") no-repeat center center;
-    background-size: cover;
-}
-    #startText{
+
+    #containerText {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: nowrap;
+        height: 240px;
+        background: url("images/wald.jpg") no-repeat center center;
+        background-size: cover;
+    }
+
+    #startText {
         display: flex;
         flex-direction: column;
         justify-content: center;
         width: 50%;
         background: rgba(143, 143, 143, 0.7);
     }
+
     .childText {
         display: flex;
         flex-direction: row;
@@ -32,25 +35,25 @@ justify-content: center;
         flex-wrap: nowrap;
         color: blue;
         align-items: center;
-       /*
-        background: url("images/lake.jpg") no-repeat center center;
-        background-size: cover;
+        /*
+         background: url("images/lake.jpg") no-repeat center center;
+         background-size: cover;
 
-        text-align: center;*/
+         text-align: center;*/
     }
 
-    .numberOfPeopleForm {
+    .numberOfPeople {
         display: flex;
         flex-direction: row;
         width: 80%;
         flex-wrap: nowrap;
     }
 
-    #leeresFeld{
+    #leeresFeld {
         height: 40px;
     }
 
-    .containerInput{
+    .containerInput {
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
@@ -59,7 +62,8 @@ justify-content: center;
         flex-wrap: nowrap;
         /*align-items: stretch;????*/
     }
-    .child1{
+
+    .child1 {
         /*border: 1px solid red;*/
         display: flex;
         flex-direction: row;
@@ -67,7 +71,8 @@ justify-content: center;
         flex: 1;
 
     }
-    .child2{
+
+    .child2 {
         display: flex;
         width: 50px;
     }

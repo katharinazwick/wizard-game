@@ -1,3 +1,11 @@
+import {getResult} from "./state.js";
+import {calculateFinalResult} from "./calculateFinalResult.js";
+
 export function outputEndGame (){
-console.log("endGame end");
+    calculateFinalResult();
+    const result = getResult();
+    for (let i = 0; i < result.length; i++){
+       //for(let key in result[i]){
+       //}
+    }
 }
