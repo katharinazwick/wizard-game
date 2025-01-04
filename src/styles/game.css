@@ -10,6 +10,8 @@ body {
         text-align: center;
     }
 
+    /*container für Wald Bild*/
+
     #containerText {
         display: flex;
         flex-direction: row;
@@ -19,6 +21,8 @@ body {
         background: url("images/wald.jpg") no-repeat center center;
         background-size: cover;
     }
+
+    /*container für Text im Wald Bild*/
 
     #startText {
         display: flex;
@@ -33,13 +37,8 @@ body {
         flex-direction: row;
         justify-content: center;
         flex-wrap: nowrap;
-        color: blue;
+        color: rebeccapurple;
         align-items: center;
-        /*
-         background: url("images/lake.jpg") no-repeat center center;
-         background-size: cover;
-
-         text-align: center;*/
     }
 
     .numberOfPeople {
@@ -50,8 +49,10 @@ body {
     }
 
     #leeresFeld {
-        height: 40px;
+        height: 20px;
     }
+
+    /*container für ganze Tabelle*/
 
     .containerInput {
         display: flex;
@@ -60,8 +61,9 @@ body {
         width: 100%;
         height: 30px;
         flex-wrap: nowrap;
-        /*align-items: stretch;????*/
     }
+
+    /*container für Kasten der Personen*/
 
     .child1 {
         /*border: 1px solid red;*/
@@ -69,13 +71,16 @@ body {
         flex-direction: row;
         justify-content: center;
         flex: 1;
-
     }
+
+    /*container für finish Button bzw leeres Feld zur Formatierung*/
 
     .child2 {
         display: flex;
         width: 50px;
     }
+
+    /*Button Result anzeigen*/
 
     .outputResult {
         display: flex;
@@ -83,11 +88,45 @@ body {
         justify-content: space-evenly;
     }
 
+    /*Text new Sequence is*/
+
     #outputSequence {
         display: flex;
         flex-direction: row;
         width: 100%;
         flex-wrap: nowrap;
     }
-
+/*contaier für lake Bild*/
+    #place {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;;
+        width: 100%;
+        height: 360px;
+        flex-wrap: nowrap;
+        background: url("images/mystery.png") no-repeat center center;
+        background-size: cover;
+    }
+/*Leister pro Person*/
+    .placement {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        flex-wrap: nowrap;
+        width: 90%;
+        background: rgba(177, 177, 177, 0.7);
+    }
+/*Felder für Ergebnisse*/
+    .placeOutput {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        width: 100%;
+        color: rebeccapurple;
+        font-size: 20px;
+        font-weight: bold;
+        font-style: italic;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
 }

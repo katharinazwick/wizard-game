@@ -7,6 +7,9 @@ export function generateInputFields() {
     const numberOfPeople = getPeople();
     const round = getNumberOfRound();
     const getTheDataForm = document.getElementById("getTheDataForm");
+    if(round === 0) {
+        getTheDataForm.innerHTML = "";
+    }
     const form = document.createElement("form");
     form.className = "inputField";
     form.id = `form-${round}`;
@@ -58,7 +61,10 @@ export function generateInputFields() {
             border: "1px solid grey",
             display: "flex",
             flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
             flexWrap: "nowrap",
+            textAlign:"center",
             color: "grey",
             width: "33.33%",
         });
@@ -97,6 +103,7 @@ export function generateInputFields() {
         createObjectWithFaR(event);
         createNewRoundEventHandler(event);
         deleteFinish(event);
+        blockNumberField();
         calculateSequence(event);
     } catch (error) {
         console.error(error);
@@ -106,6 +113,10 @@ export function generateInputFields() {
     function deleteFinish() {
         finishCurrentRoundButton.style.display = "none";
     }
-    
+
+    function blockNumberField (){
+        const numberFiled = document.getElementById("numberOfPeopleForm");
+        numberFiled.style.pointerEvents = "none";
+    }
     getTheDataForm.appendChild(form);
 }

@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wizard Calculator</title>
-    <!--strg + d => dupli-->
     <link rel="stylesheet" href="styles/game.css">
 </head>
 
@@ -18,7 +17,10 @@
             <input class=numberOfPeople placeholder="number of people" type="number" name="numberOfPeople">
         </label>
     </form>
+
+    <p></p>
     <button id="endGameButton">end Game</button>
+
 
     <p></p>
 
@@ -26,8 +28,14 @@
         <div id="startText">
             <p class="childText">Für dieses Spiel benötigst du ein Wizard Kartenset.</p>
             <p class="childText">Der Start erfolgt durch die Eingabe der Spieler-/Spielerinnenanzahl.</p>
+            <p class="childText">Am Ende jeder Runde kannst du dir das Endergebnis anzeigen lassen oder das Spiel beendet.</p>
             <p class="childText">Viel Spaß!</p>
         </div>
+    </div>
+
+    <p></p>
+
+    <div id=place>
     </div>
 
     <p></p>
@@ -57,7 +65,6 @@
     <div id="outputSequence" class="sequence">new Sequence is:</div>
 
 </div>
-
 
 <script type="module" src="modules/state.js"></script>
 <script type="module" src="modules/index.js"></script>

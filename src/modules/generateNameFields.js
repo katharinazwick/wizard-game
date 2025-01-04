@@ -21,12 +21,13 @@ export function generateNameFields() {
         Object.assign(nameInput.style, {
             display: "flex",
             flexDirection: "row",
+            justifyContent: "center",
             flexWrap: "nowrap",
             textAlign: "center",
-            width:"33.33%",
+            width:"40%",
+            border: "1px solid grey",
             borderRadius:"0px"
         })
-        //name inputs sind nicht 100% mittig?
 
         const divEmpty = document.createElement("div");
         divEmpty.style.width= "5px";

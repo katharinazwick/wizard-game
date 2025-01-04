@@ -23,10 +23,11 @@ export function createOutputFields() {
             border: "1px solid grey",
             display: "flex",
             flexDirection: "row",
-//nicht mittig
+            justifyContent: "center",
+            alignItems: "center",
             flexWrap: "nowrap",
             color: "grey",
-            width:"33.33%",
+            width:"20%",
         })
 
         const divEmpty = document.createElement("div");

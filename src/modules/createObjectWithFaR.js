@@ -22,8 +22,12 @@ export function createObjectWithFaR(event) {
             originalPlayerStateObject = {}
         } //wozu??
 
-        if (!value) {
+        if (isNaN(value)) {
             throw ("missing Input")
+        }
+
+        if(value>round+1){
+            throw ("wrong Input")
         }
 
         if (key.startsWith("forecast")) {
@@ -54,7 +58,7 @@ export function createObjectWithFaR(event) {
             outputSequence.innerText = player[key].intermediateResult;
         }
     }
-
+console.log(gameState);
     setPlayer(player);
     setGameState(gameState);
 

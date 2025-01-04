@@ -2,19 +2,16 @@ window.gameState = [];
 let numberOfPeople = 0;
 window.nameOfThePeople = [];
 
-let count = 0;
-
 let numberOfRounds = 0;
 
 window.player = [];
 
 window.finalResult = [];
 
-//soll das so bleiben weil die daten ja jetzt in players sind
 export function setPeople(value) {
     window.gameState = [];
     numberOfPeople = parseInt(value, 10);
-    if (numberOfPeople>4 || numberOfPeople <= 0 || isNaN(numberOfPeople)) {
+    if (numberOfPeople>6 || numberOfPeople <= 1 || isNaN(numberOfPeople)) {
         throw ("wrong Input");
     }
     for (let i = 1; i <= numberOfPeople; i++) {

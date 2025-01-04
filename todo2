@@ -1,11 +1,6 @@
-den bug mit ändern der personen und den felder beheben
-
-leiste am rand wo link zu rules drin ist
-menu bar => leiste
-
-pop up für endgame
-
 ///////////////////
+
+menu bar => leiste
 
 textContent erfasst den Inhalt aller Elemente, einschließlich <script> - und <style> -Elementen.
 innerText erfasst nur "menschlich lesbare" Element
@@ -36,3 +31,9 @@ const form = document.getElementById("numberOfPeopleForm");
     form.addEventListener("submit", (event) => {
         event.preventDefault();
     }) verhindert neuladen der Seite
+
+entfernt in jeder runde die felder bei änderung, aber hier nicht nötig
+const existingForm = document.getElementById(`form-${round}`);
+    if (existingForm) {
+        existingForm.remove();
+    }
