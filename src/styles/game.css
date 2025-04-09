@@ -66,11 +66,10 @@ body {
     /*container für Kasten der Personen*/
 
     .child1 {
-        /*border: 1px solid red;*/
         display: flex;
         flex-direction: row;
         justify-content: center;
-        flex: 1;
+        flex: 1; /*box wird vergrößert und verkleinert wenn Platz/kein PLatz da ist / Standartgröße ist quasi 0*/
     }
 
     /*container für finish Button bzw leeres Feld zur Formatierung*/
@@ -96,7 +95,9 @@ body {
         width: 100%;
         flex-wrap: nowrap;
     }
-/*contaier für lake Bild*/
+
+    /*contaier für mystery Bild*/
+
     #place {
         display: none;
         flex-direction: column;
@@ -108,7 +109,9 @@ body {
         background: url("images/mystery.png") no-repeat center center;
         background-size: cover;
     }
-/*Leister pro Person*/
+
+    /*Leister pro Person*/
+
     .placement {
         display: flex;
         flex-direction: row;
@@ -117,7 +120,9 @@ body {
         width: 90%;
         background: rgba(177, 177, 177, 0.7);
     }
-/*Felder für Ergebnisse*/
+
+    /*Felder für Ergebnisse*/
+
     .placeOutput {
         display: flex;
         flex-wrap: nowrap;

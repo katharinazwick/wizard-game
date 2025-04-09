@@ -18,6 +18,7 @@ export function generateNameFields() {
         nameInput.type = 'text';
         nameInput.name = `name-${i}`;
         nameInput.placeholder = `name`
+        nameInput.className = "nameInput"
         Object.assign(nameInput.style, {
             display: "flex",
             flexDirection: "row",

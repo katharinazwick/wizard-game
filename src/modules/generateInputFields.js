@@ -31,6 +31,7 @@ export function generateInputFields() {
         forecastInput.type = 'text';
         forecastInput.name = `forecast-${round}-${i}`;
         forecastInput.placeholder = `forecast`
+        forecastInput.className="forecastInput"
         Object.assign(forecastInput.style, {
             border: "1px solid grey",
             textAlign: "center",
@@ -45,6 +46,8 @@ export function generateInputFields() {
         reachedInput.type = 'text';
         reachedInput.name = `reached-${round}-${i}`;
         reachedInput.placeholder = `reached`
+        reachedInput.className="reachedInput"
+
         Object.assign(reachedInput.style, {
             border: "1px solid grey",
             textAlign: "center",
@@ -115,8 +118,8 @@ export function generateInputFields() {
     }
 
     function blockNumberField (){
-        const numberFiled = document.getElementById("numberOfPeopleForm");
-        numberFiled.style.pointerEvents = "none";
+        const numberField = document.getElementById("numberOfPeopleInput");
+        numberField.disabled = true;
     }
     getTheDataForm.appendChild(form);
 }

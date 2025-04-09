@@ -3,7 +3,7 @@ import {getGameState, getNumberOfRound, setGameState, setPlayer} from "./state.j
 //hier werden die Inputs ausgelesen und das intermediatResult berechnet
 
 export function createObjectWithFaR(event) {
-    event.preventDefault();
+    event.preventDefault(); //wo bekommt der sein event her
 
     const gameState = getGameState();
     const round = getNumberOfRound();
@@ -20,13 +20,13 @@ export function createObjectWithFaR(event) {
 
         if (!originalPlayerStateObject) {
             originalPlayerStateObject = {}
-        } //wozu??
+        }
 
         if (isNaN(value)) {
             throw ("missing Input")
         }
 
-        if(value>round+1){
+        if(value>round+1 || value < 0){
             throw ("wrong Input")
         }
 
@@ -35,7 +35,7 @@ export function createObjectWithFaR(event) {
             player[splitKey[2]] = originalPlayerStateObject;
             continue;
         }
-        originalPlayerStateObject.reached = value; // {reached: 43, forecast: 32}
+        originalPlayerStateObject.reached = value;
         player[splitKey[2]] = originalPlayerStateObject;
     }
 
@@ -58,7 +58,7 @@ export function createObjectWithFaR(event) {
             outputSequence.innerText = player[key].intermediateResult;
         }
     }
-console.log(gameState);
+
     setPlayer(player);
     setGameState(gameState);
 
