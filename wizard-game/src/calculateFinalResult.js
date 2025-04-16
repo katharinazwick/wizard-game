@@ -1,4 +1,4 @@
-import {getplayer, getGameState, getNameOfThePeople, setResult} from "./State.js";
+import {getplayer, getGameState, getNameOfThePeople, setResult} from "./state.js";
 import {getName} from "./getNameOfThePlayer.js";
 
 //erstellt das komplette Objekt mit name, forecast, reached, intermediateResult, result in einem Array

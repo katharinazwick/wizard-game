@@ -1,0 +1,148 @@
+:root {
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+    color: rebeccapurple;
+    text-decoration: 4px underline;
+    font-style: italic;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+/*container für Wald Bild*/
+
+#containerText {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: nowrap;
+    height: 240px;
+    background: url("images/wald.jpg") no-repeat center center;
+    background-size: cover;
+}
+
+/*container für Text im Wald Bild*/
+
+#startText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    background: rgba(143, 143, 143, 0.7);
+}
+
+.childText {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: nowrap;
+    color: rebeccapurple;
+    align-items: center;
+}
+
+.numberOfPeople {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    flex-wrap: nowrap;
+}
+
+#leeresFeld {
+    height: 20px;
+}
+
+/*container für ganze Tabelle*/
+
+.containerInput {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 30px;
+    flex-wrap: nowrap;
+}
+
+/*container für Kasten der Personen*/
+
+.child1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex: 1; /*box wird vergrößert und verkleinert wenn Platz/kein PLatz da ist / Standartgröße ist quasi 0*/
+}
+
+/*container für finish Button bzw leeres Feld zur Formatierung*/
+
+.child2 {
+    display: flex;
+    width: 50px;
+}
+
+/*Button Result anzeigen*/
+
+.outputResult {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+/*Text new Sequence is*/
+
+#outputSequence {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: nowrap;
+}
+
+/*contaier für mystery Bild*/
+
+#place {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;;
+    width: 100%;
+    height: 360px;
+    flex-wrap: nowrap;
+    background: url("images/mystery.png") no-repeat center center;
+    background-size: cover;
+}
+
+/*Leister pro Person*/
+
+.placement {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+    width: 90%;
+    background: rgba(177, 177, 177, 0.7);
+}
+
+/*Felder für Ergebnisse*/
+
+.placeOutput {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    width: 100%;
+    color: rebeccapurple;
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
