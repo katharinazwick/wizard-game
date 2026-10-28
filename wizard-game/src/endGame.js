@@ -1,70 +1,31 @@
-import {getResult} from "./state.js";
-import {calculateFinalResult} from "./calculateFinalResult.js";
+import {getFinishedRounds, getStandings} from "./state.js";
+import {el} from "./dom.js";
+
+const MEDALS = {1: "🥇", 2: "🥈", 3: "🥉"};
 
 export function outputEndGame() {
-    calculateFinalResult();
-    const result = getResult();
-    for (let i = 0; i < result.length; i++) {
-        for (let k = i + 1; k < result.length; k++) {
-            if (result[i].finalResult < result[k].finalResult) {
-                [result[i], result[k]] = [result[k], result[i]];
-            }
-        }
-    }
+    if (getFinishedRounds() === 0) return;
+
+    // Angefangene, aber nicht abgeschlossene Runde verwerfen und alles sperren.
+    document.querySelector("#getTheDataForm .round:not(.done)")?.remove();
+    document.querySelectorAll(".nameInput").forEach((input) => (input.disabled = true));
+    document.getElementById("endGameButton").hidden = true;
+    document.getElementById("outputSequence").hidden = true;
+    document.getElementById("roundInfo").textContent = "Spiel beendet";
+
+    const newGame = el("button", {class: "btn primary", type: "button", text: "Neues Spiel"});
+    newGame.addEventListener("click", () => location.reload());
+
+    const list = el("ol", {class: "ranking"}, ...getStandings().map(({name, total, place}) =>
+        el("li", {class: `rank place-${place}`},
+            el("span", {class: "rank-place", text: MEDALS[place] ?? `${place}.`}),
+            el("span", {class: "rank-name", text: name}),
+            el("span", {class: "rank-score", text: total}),
+        ),
+    ));
 
     const place = document.getElementById("place");
-    place.style.display = "flex";
-
-    const divEmpty = document.createElement("div");
-    divEmpty.className = "placement"
-    divEmpty.style.height = "10px";
-    place.appendChild(divEmpty);
-
-    for (let i = 0; i < result.length; i++) {
-        const placement = document.createElement("div");
-        placement.className = "placement";
-
-        const text = document.createElement("div");
-        text.className = "placeOutput";
-        text.innerText = `place-${i + 1}`;
-        if (i > 0) {
-            if (result[i].finalResult === result[i - 1].finalResult) { //aktuell wenn zwei 1 plätze danach dritter
-                text.innerText = `place-${i}`;
-            }
-        }
-        const name = document.createElement("div");
-        name.className = "placeOutput";
-        name.innerText = result[i].name;
-        const score = document.createElement("div");
-        score.className = "placeOutput";
-        score.innerText = result[i].finalResult;
-
-        const divEmpty = document.createElement("div");
-        divEmpty.className = "placement"
-        divEmpty.style.height = "10px";
-
-        placement.appendChild(text);
-        placement.appendChild(name);
-        placement.appendChild(score);
-
-        place.appendChild(placement);
-        place.appendChild(divEmpty);
-    }
-    const nameElements = document.getElementsByClassName("nameInput");
-    for (let item of nameElements) {
-        item.disabled = true;
-    }
-    const forecastElements = document.getElementsByClassName("forecastInput");
-   for(let item of forecastElements) {
-       item.disabled = true;
-   }
-    const reachedElements = document.getElementsByClassName("reachedInput");
-    for(let item of reachedElements) {
-        item.disabled = true;
-    }
-    const output = document.getElementById("outputResult");
-    output.style.display = "none";
-    const text = document.getElementById("containerText");
-    text.style.display = "none"
-
+    place.replaceChildren(el("h2", {text: "Endergebnis"}), list, newGame);
+    place.hidden = false;
+    place.scrollIntoView({behavior: "smooth", block: "start"});
 }

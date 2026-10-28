@@ -1,46 +1,26 @@
-import {getPeople} from "./state.js";
+import {getPlayerCount, setName} from "./state.js";
+import {el, playerColumns} from "./dom.js";
+import {updateSequence} from "./calculateSequence.js";
 
 export function generateNameFields() {
-    const numberOfPeople = getPeople()
-    const namesForm = document.getElementById("namesForm");
-    namesForm.className = "nameField"
+    const cells = playerColumns(getPlayerCount(), (i) => {
+        const input = el("input", {
+            class: "nameInput",
+            type: "text",
+            name: `name-${i}`,
+            placeholder: `Spieler ${i + 1}`,
+            maxLength: 14,
+            autocomplete: "off",
+            attrs: {"aria-label": `Name von Spieler ${i + 1}`},
+        });
+        input.addEventListener("input", () => {
+            setName(i, input.value);
+            updateSequence();
+        });
+        return el("div", {class: `cell player p${i + 1}`}, input);
+    });
 
-    namesForm.replaceChildren();
-
-    const divLine = document.createElement("div");
-    divLine.className = "containerInput";
-
-    for (let i = 1; i <= numberOfPeople; i++) {
-        const divRound = document.createElement("div");
-        divRound.className = "child1";
-
-        const nameInput = document.createElement('input');
-        nameInput.type = 'text';
-        nameInput.name = `name-${i}`;
-        nameInput.placeholder = `name`
-        nameInput.className = "nameInput"
-        Object.assign(nameInput.style, {
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "center",
-            flexWrap: "nowrap",
-            textAlign: "center",
-            width:"40%",
-            border: "1px solid grey",
-            borderRadius:"0px"
-        })
-
-        const divEmpty = document.createElement("div");
-        divEmpty.style.width= "5px";
-
-        divRound.appendChild(nameInput);
-        divLine.appendChild(divRound);
-        divLine.appendChild(divEmpty);
-    }
-
-    const divFinish = document.createElement("div");
-    divFinish.className = "child2";
-
-    divLine.appendChild(divFinish);
-    namesForm.appendChild(divLine);
+    document.getElementById("namesForm").replaceChildren(
+        el("div", {class: "row"}, el("div", {class: "round-label", text: "Runde"}), ...cells),
+    );
 }

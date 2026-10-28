@@ -1,71 +1,46 @@
-window.gameState = [];
-let numberOfPeople = 0;
-window.nameOfThePeople = [];
+import {calculateTotal, rankPlayers} from "./scoring.js";
 
-let numberOfRounds = 0;
+export const MIN_PLAYERS = 2;
+export const MAX_PLAYERS = 6;
+const CARDS_IN_DECK = 60;
 
-window.player = [];
+// players[i] = { name, rounds: [{ forecast, reached, score }] }
+let players = [];
+let round = 1;
 
-window.finalResult = [];
-
-export function setPeople(value) {
-    window.gameState = [];
-    numberOfPeople = parseInt(value, 10);
-    if (numberOfPeople>6 || numberOfPeople <= 1 || isNaN(numberOfPeople)) {
-        throw ("wrong Input");
-    }
-    for (let i = 1; i <= numberOfPeople; i++) {
-        window.gameState.push({
-            name: "",
-            forecast: [],
-            reached: [],
-            intermediateResult: [],
-            finalResult: 0
-        });
-    }
-
+export function parsePlayerCount(value) {
+    const count = Number(value);
+    return Number.isInteger(count) && count >= MIN_PLAYERS && count <= MAX_PLAYERS ? count : null;
 }
 
-export function setGameState (data){
-    window.gameState = [...data];
+export function startGame(count) {
+    players = Array.from({length: count}, () => ({name: "", rounds: []}));
+    round = 1;
 }
 
-export function getPeople() {
-    return numberOfPeople;
+export const getPlayerCount = () => players.length;
+export const getRound = () => round;
+export const getFinishedRounds = () => round - 1;
+export const getMaxRounds = () => CARDS_IN_DECK / players.length;
+export const isGameOver = () => round > getMaxRounds();
+
+export function setName(index, name) {
+    players[index].name = name.trim();
 }
 
-export function getGameState() {
-    return window.gameState;
+export function getName(index) {
+    return players[index].name || `Spieler ${index + 1}`;
 }
 
-export function setNameOfThePeople(data){
-    window.nameOfThePeople = [...data];
+export const getNames = () => players.map((_, i) => getName(i));
+export const getTotals = () => players.map((player) => calculateTotal(player.rounds));
+
+/** results[i] = { forecast, reached, score } für Spieler i; schließt die aktuelle Runde ab. */
+export function finishRound(results) {
+    results.forEach((result, i) => players[i].rounds.push(result));
+    round += 1;
 }
 
-export function getNameOfThePeople() {
-    return window.nameOfThePeople;
-}
-
-export function increaseNumberOfRound(){
-    numberOfRounds += 1;
-}
-
-export function getNumberOfRound(){
-    return numberOfRounds;
-}
-
-export function setPlayer(data){
-    window.player = {...data};
-}
-
-export function getplayer () {
-    return window.player;
-}
-
-export function setResult (data) {
-    window.Result = [...data];
-}
-
-export function getResult() {
-    return window.Result;
+export function getStandings() {
+    return rankPlayers(players.map((_, i) => ({name: getName(i), total: getTotals()[i]})));
 }

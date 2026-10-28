@@ -1,45 +1,17 @@
-import {getPeople, getNameOfThePeople, getNumberOfRound} from "./state.js";
-import {getName} from "./getNameOfThePlayer.js";
+import {getMaxRounds, getNames, getRound} from "./state.js";
+import {rotateSequence} from "./scoring.js";
+import {el} from "./dom.js";
 
-export function calculateSequence() {
-    let currentRound = getNumberOfRound() + 1;
-    const people = getPeople();
-    getName();
-    const name = getNameOfThePeople();
+/** Zeigt die aktuelle Runde und die Reihenfolge, in der angesagt wird. */
+export function updateSequence() {
+    const round = getRound();
+    document.getElementById("roundInfo").textContent = `Runde ${Math.min(round, getMaxRounds())} von ${getMaxRounds()}`;
 
-    const peopleSequence = [];
-    let newPeople = [];
-
-    for (let i = 0; i < name.length; i++) {
-        if (name[i] === "") {
-            peopleSequence.push("person" + (i + 1)); //person1 person2
-        } else {
-            peopleSequence.push(name[i]);
-        }
-    }
-
-    while (currentRound > people) {
-        currentRound -= people;
-    }
-
-    if (currentRound === 1) {
-        newPeople = peopleSequence;
-    } else {
-        for (let i = currentRound - 1; i < people; i++) {
-            newPeople.push(peopleSequence[i]);
-        }
-        for (let i = 0; i < currentRound - 1; i++) {
-            newPeople.push(peopleSequence[i])
-        }
-    }
-
-    const outputSequence = document.getElementById("outputSequence");
-
-    if (outputSequence) {
-        outputSequence.innerText = `new Sequence is: ${newPeople}`;
-    }
-
-    return newPeople;
+    const chips = rotateSequence(getNames(), round).map((name, i) =>
+        el("li", {class: i === 0 ? "chip first" : "chip", text: name}),
+    );
+    document.getElementById("outputSequence").replaceChildren(
+        el("span", {class: "sequence-label", text: "Reihenfolge"}),
+        el("ol", {class: "chips"}, ...chips),
+    );
 }
-
-

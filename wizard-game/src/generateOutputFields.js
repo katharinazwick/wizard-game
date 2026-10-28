@@ -1,46 +1,20 @@
-import {getPeople} from "./state.js";
+import {getFinishedRounds, getPlayerCount, getTotals} from "./state.js";
+import {el, playerColumns} from "./dom.js";
 
+/** Summenzeile ("Σ") – wird nach jeder Runde mit updateOutputFields() aktualisiert. */
 export function createOutputFields() {
-    const numberOfPeople= getPeople()
-    const outputResult = document.getElementById("outputResult");
-    //outputResult.className = "outputField"
+    const cells = playerColumns(getPlayerCount(), (i) => el("div", {class: `cell total p${i + 1}`, text: "0"}));
+    document.getElementById("outputResult").replaceChildren(
+        el("div", {class: "row"}, el("div", {class: "round-label", text: "Σ"}), ...cells),
+    );
+    updateOutputFields();
+}
 
-
-    outputResult.replaceChildren();
-
-    const divLine = document.createElement("div")
-    divLine.className = "containerInput";
-
-    for (let i = 1; i <= numberOfPeople; i++) {
-        const divRound = document.createElement("div");
-        divRound.className = "child1";
-
-        const output = document.createElement('div');
-        output.type = 'text';
-        output.innerText = `result`;
-        output.id = `result-${i}`;
-        Object.assign(output.style, {
-            border: "1px solid grey",
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "center",
-            alignItems: "center",
-            flexWrap: "nowrap",
-            color: "grey",
-            width:"20%",
-        })
-
-        const divEmpty = document.createElement("div");
-        divEmpty.style.width = "5px";
-
-        divRound.appendChild(output);
-        divLine.appendChild(divRound);
-        divLine.appendChild(divEmpty);
-    }
-
-    const divFinish = document.createElement("div");
-    divFinish.className = "child2";
-
-    divLine.appendChild(divFinish);
-    outputResult.appendChild(divLine);
+export function updateOutputFields() {
+    const totals = getTotals();
+    const best = Math.max(...totals);
+    document.querySelectorAll("#outputResult .total").forEach((cell, i) => {
+        cell.textContent = totals[i];
+        cell.classList.toggle("leader", getFinishedRounds() > 0 && totals[i] === best);
+    });
 }

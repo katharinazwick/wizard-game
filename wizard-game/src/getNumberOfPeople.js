@@ -1,22 +1,24 @@
-import {setPeople} from './state.js';
-import {generateInputFields} from './generateInputFields.js';
+import {MAX_PLAYERS, MIN_PLAYERS, parsePlayerCount, startGame} from "./state.js";
 import {generateNameFields} from "./generateNameFields.js";
+import {generateInputFields} from "./generateInputFields.js";
 import {createOutputFields} from "./generateOutputFields.js";
+import {updateSequence} from "./calculateSequence.js";
 
 export function numberOfPeopleEventHandler(event) {
-    //const input = event.target;
-    //const formNumberOfPeople = new FormData(input.form);
-    // const numberOfPeople = formNumberOfPeople.get("numberOfPeopleEventHandler");
-    setPeople(event.target.value);
+    const value = event.target.value;
+    const count = parsePlayerCount(value);
+    const hint = document.getElementById("numberOfPeopleHint");
+
+    document.getElementById("game").hidden = count === null;
+    document.getElementById("containerText").hidden = count !== null;
+    hint.textContent = count === null && value !== "" ? `Bitte eine Zahl von ${MIN_PLAYERS} bis ${MAX_PLAYERS} eingeben.` : "";
+    if (count === null) return;
+
+    startGame(count);
+    document.getElementById("getTheDataForm").replaceChildren();
+    document.getElementById("game").style.setProperty("--players", count);
     generateNameFields();
     generateInputFields();
     createOutputFields();
-
-    const form = document.getElementById("numberOfPeopleForm");
-    form.addEventListener("submit", (event) => {
-        event.preventDefault();
-    })
-
-    const layout = document.getElementById("startText");
-    layout.style.display = "none";
+    updateSequence();
 }

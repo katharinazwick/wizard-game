@@ -1,78 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
     <title>Wizard Calculator</title>
     <link rel="stylesheet" href="wizard-game/src/game.css">
 </head>
 
 <body>
-<div>
-    <h1>Wizard Calculator</h1>
-    <h2></h2>
+<main class="app">
+    <header class="header">
+        <h1>Wizard Calculator</h1>
+        <p class="tagline">Der Punkteblock für deinen Wizard-Abend</p>
+    </header>
 
-    <form id="numberOfPeopleForm" class="numberOfPeople">
-        <label>
-            <input class="numberOfPeople" id="numberOfPeopleInput" placeholder="number of people" type="number" name="numberOfPeople">
-        </label>
+    <form id="numberOfPeopleForm" class="card setup">
+        <label for="numberOfPeopleInput">Wie viele Spieler seid ihr?</label>
+        <input id="numberOfPeopleInput" name="numberOfPeople" type="number" min="2" max="6"
+               inputmode="numeric" placeholder="2 – 6" autofocus>
+        <p id="numberOfPeopleHint" class="hint" role="alert"></p>
     </form>
 
-    <p></p>
-    <button id="endGameButton">end Game</button>
-
-
-    <p></p>
-
-    <div id="containerText">
+    <!-- Wald-Banner mit Kurzanleitung: verschwindet, sobald das Spiel startet -->
+    <section id="containerText">
         <div id="startText">
-            <p class="childText">Für dieses Spiel benötigst du ein Wizard Kartenset.</p>
-            <p class="childText">Der Start erfolgt durch die Eingabe der Spieler-/Spielerinnenanzahl.</p>
-            <p class="childText">Am Ende jeder Runde kannst du dir das Endergebnis anzeigen lassen oder das Spiel beendet.</p>
-            <p class="childText">Viel Spaß!</p>
+            <ol>
+                <li>Für dieses Spiel benötigst du ein Wizard-Kartenset.</li>
+                <li>Starte mit der Eingabe der Spielerzahl.</li>
+                <li>Trage pro Runde Ansage und Stiche ein – die Punkte rechnen sich von selbst.</li>
+                <li>Nach jeder Runde kannst du weiterspielen oder das Spiel beenden.</li>
+            </ol>
+            <p class="have-fun">Viel Spaß!</p>
         </div>
-    </div>
+    </section>
 
-    <p></p>
+    <section id="game" hidden>
+        <div class="toolbar">
+            <span id="roundInfo" class="round-info"></span>
+            <button id="endGameButton" class="btn" type="button" disabled>Spiel beenden</button>
+        </div>
+        <div id="outputSequence" class="sequence"></div>
 
-    <div id=place>
-    </div>
+        <div class="board">
+            <form id="namesForm" class="board-head"></form>
+            <div id="getTheDataForm" class="rounds"></div>
+            <form id="outputResult" class="board-foot"></form>
+        </div>
+        <p class="legend">Pro Runde: <b>Ansage</b> / <b>Stiche</b> → Punkte</p>
+    </section>
 
-    <p></p>
+    <section id="place" hidden></section>
+</main>
 
-    <form id="namesForm" class="namesForm">
-    </form>
-
-    <p></p>
-
-    <div id="getTheDataForm" class="getTheDataForm">
-    </div>
-
-    <p></p>
-
-    <form id="outputResult" class="resultButton">
-    </form>
-
-    <!--<Hauptteil abgeschlossen>-->
-
-    <div id="leeresFeld">
-    </div>
-
-    <button id="resultButton">Result anzeigen</button>
-
-    <p></p>
-
-    <div id="outputSequence" class="sequence">new Sequence is:</div>
-
-    <p></p>
-</div>
-
-<script type="module" src="wizard-game/src/state.js"></script>
 <script type="module" src="wizard-game/src/index.js"></script>
 
-<footer style="margin-top: 40px; text-align: center; font-size: 0.9em;">
-    <p><a href="./impressum.html">Impressum & Datenschutzerklärung</a></p>
+<footer class="footer">
+    <a href="./impressum.html">Impressum &amp; Datenschutzerklärung</a>
 </footer>
-
 </body>
 </html>

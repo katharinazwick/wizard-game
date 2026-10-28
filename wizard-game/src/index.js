@@ -1,21 +1,7 @@
 import {numberOfPeopleEventHandler} from "./getNumberOfPeople.js";
-import {calculateFinalResult} from "./calculateFinalResult.js";
 import {outputEndGame} from "./endGame.js";
 
-
-//zum Holen der Anzahl der Personen
-const numberOfPeopleInputs = document.querySelectorAll("input[name=numberOfPeople]");
-for (let input of numberOfPeopleInputs) {
-    input.addEventListener("input", numberOfPeopleEventHandler);
-}
-
-const resultButton = document.getElementById("resultButton");
-if(resultButton){
-    resultButton.addEventListener("click", calculateFinalResult);
-}
-
-const endGameButton = document.getElementById("endGameButton");
-if(endGameButton){
-    endGameButton.addEventListener("click", outputEndGame);
-}
-
+const numberInput = document.getElementById("numberOfPeopleInput");
+numberInput.addEventListener("input", numberOfPeopleEventHandler);
+document.getElementById("numberOfPeopleForm").addEventListener("submit", (event) => event.preventDefault());
+document.getElementById("endGameButton").addEventListener("click", outputEndGame);

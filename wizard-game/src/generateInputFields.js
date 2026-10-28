@@ -1,125 +1,62 @@
-import {getNumberOfRound, getPeople} from './state.js';
-import {createObjectWithFaR} from "./createObjectWithFaR.js";
-import {createNewRoundEventHandler} from "./createNewRoundEventHandler.js";
-import {calculateSequence} from "./calculateSequence.js";
+import {getMaxRounds, getPlayerCount, getRound, isGameOver} from "./state.js";
+import {el, playerColumns} from "./dom.js";
+import {finishRoundFromForm} from "./finishRound.js";
+import {updateOutputFields} from "./generateOutputFields.js";
+import {updateSequence} from "./calculateSequence.js";
+import {outputEndGame} from "./endGame.js";
 
+function numberField(kind, label, round, player) {
+    const input = el("input", {
+        type: "number",
+        name: `${kind}-${player}`,
+        min: 0,
+        max: round,
+        inputMode: "numeric",
+        placeholder: "–",
+        attrs: {"aria-label": `${label} Spieler ${player + 1}, Runde ${round}`},
+    });
+    return el("label", {class: "field"}, el("span", {text: label}), input);
+}
+
+/** Erzeugt die Eingabezeile für die aktuelle Runde und hängt sie unten an. */
 export function generateInputFields() {
-    const numberOfPeople = getPeople();
-    const round = getNumberOfRound();
-    const getTheDataForm = document.getElementById("getTheDataForm");
-    if(round === 0) {
-        getTheDataForm.innerHTML = "";
-    }
-    const form = document.createElement("form");
-    form.className = "inputField";
-    form.id = `form-${round}`;
+    const round = getRound();
+    const isLast = round === getMaxRounds();
 
-    const divLine = document.createElement("div")
-    divLine.className = "containerInput";
+    const cells = playerColumns(getPlayerCount(), (i) =>
+        el("div", {class: `cell p${i + 1}`},
+            el("div", {class: "fields"}, numberField("forecast", "Ansage", round, i), numberField("reached", "Stiche", round, i)),
+            el("div", {class: "score", text: "–"}),
+        ),
+    );
 
-    let count = getNumberOfRound();
-    if (count % 3 === 0) {
-        const enter = document.createElement("p");
-        form.appendChild(enter);
-    }
-
-    for (let i = 1; i <= numberOfPeople; i++) {
-        const divRound = document.createElement("div");
-        divRound.className = "child1";
-
-        const forecastInput = document.createElement('input');
-        forecastInput.type = 'text';
-        forecastInput.name = `forecast-${round}-${i}`;
-        forecastInput.placeholder = `forecast`
-        forecastInput.className="forecastInput"
-        Object.assign(forecastInput.style, {
-            border: "1px solid grey",
-            textAlign: "center",
-            display: "flex",
-            flexDirection: "row",
-            width: "33.33%",
-            flexWrap: "nowrap",
-        });
-
-
-        const reachedInput = document.createElement('input');
-        reachedInput.type = 'text';
-        reachedInput.name = `reached-${round}-${i}`;
-        reachedInput.placeholder = `reached`
-        reachedInput.className="reachedInput"
-
-        Object.assign(reachedInput.style, {
-            border: "1px solid grey",
-            textAlign: "center",
-            display: "flex",
-            flexDirection: "row",
-            width: "33.33%",
-            flexWrap: "nowrap",
-        });
-
-        const resultDiv = document.createElement('div');
-        resultDiv.id = `result-${round}-${i}`;
-        resultDiv.innerText = "result";
-        Object.assign(resultDiv.style, {
-            border: "1px solid grey",
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "center",
-            alignItems: "center",
-            flexWrap: "nowrap",
-            textAlign:"center",
-            color: "grey",
-            width: "33.33%",
-        });
-
-        const divEmpty = document.createElement("div");
-        divEmpty.style.width = "5px";
-
-        divRound.appendChild(forecastInput);
-        divRound.appendChild(reachedInput);
-        divRound.appendChild(resultDiv);
-        divLine.appendChild(divRound);
-        divLine.appendChild(divEmpty);
-    }
-
-    const divFinish = document.createElement("div");
-    divFinish.className = "child2";
-
-    const finishCurrentRoundButton = document.createElement('button');
-    finishCurrentRoundButton.innerText = 'finish';
-    finishCurrentRoundButton.id ="finish"
-    //finishCurrentRoundButton.disabled = true;
-    finishCurrentRoundButton.type = "submit";
-    Object.assign(finishCurrentRoundButton.style, {
-        border: "1px solid grey",
-    })
-
-    divFinish.appendChild(finishCurrentRoundButton);
-
-    divLine.appendChild(divFinish);
-
-    form.appendChild(divLine);
+    const form = el("form", {class: "row round", noValidate: true},
+        el("div", {class: "round-label"}, el("strong", {text: round}), el("span", {text: round === 1 ? "Karte" : "Karten"})),
+        ...cells,
+        el("p", {class: "row-message", hidden: true, attrs: {role: "alert"}}),
+        el("button", {class: "btn primary finish", type: "submit", text: isLast ? "Letzte Runde abschließen" : "Runde abschließen"}),
+    );
 
     form.addEventListener("submit", (event) => {
-    try {
-        //form.addEventListener('submit', calculateSequence);
-        createObjectWithFaR(event);
-        createNewRoundEventHandler(event);
-        deleteFinish(event);
-        blockNumberField();
-        calculateSequence(event);
-    } catch (error) {
-        console.error(error);
-    }
+        event.preventDefault();
+        if (!finishRoundFromForm(form)) return;
+        startNextRound();
     });
 
-    function deleteFinish() {
-        finishCurrentRoundButton.style.display = "none";
-    }
+    document.getElementById("getTheDataForm").append(form);
+    if (round > 1) form.scrollIntoView({behavior: "smooth", block: "center"});
+    form.querySelector("input").focus({preventScroll: true});
+}
 
-    function blockNumberField (){
-        const numberField = document.getElementById("numberOfPeopleInput");
-        numberField.disabled = true;
+function startNextRound() {
+    document.getElementById("numberOfPeopleInput").disabled = true;
+    document.getElementById("endGameButton").disabled = false;
+    updateOutputFields();
+    updateSequence();
+
+    if (isGameOver()) {
+        outputEndGame();
+    } else {
+        generateInputFields();
     }
-    getTheDataForm.appendChild(form);
 }
