@@ -52,7 +52,7 @@ export function finishRoundFromForm(form) {
     const {entries, firstInvalid} = readEntries(form, round);
 
     if (firstInvalid) {
-        showMessage(form, `Bitte überall eine ganze Zahl von 0 bis ${round} eintragen.`);
+        showMessage(form, `Trage bitte überall eine ganze Zahl von 0 bis ${round} ein.`);
         firstInvalid.focus();
         return false;
     }
@@ -61,7 +61,7 @@ export function finishRoundFromForm(form) {
     const trickSum = entries.reduce((sum, entry) => sum + entry.reached, 0);
     if (trickSum !== round && form.dataset.confirmedSum !== String(trickSum)) {
         form.dataset.confirmedSum = trickSum;
-        showMessage(form, `Die Stiche ergeben ${trickSum}, es gab aber ${round} ${round === 1 ? "Karte" : "Karten"} pro Spieler. Stimmt das? Zum Bestätigen nochmal „Abschließen“ drücken.`, "warning");
+        showMessage(form, `Es wurden ${trickSum} Stiche eingetragen, gab aber nur ${round} ${round === 1 ? "Karte" : "Karten"} pro Spieler.`, "warning");
         return false;
     }
 
