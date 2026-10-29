@@ -8,7 +8,7 @@ export function generateNameFields() {
             class: "nameInput",
             type: "text",
             name: `name-${i}`,
-            placeholder: `Spieler ${i + 1}`,
+            placeholder: `Spieler/Spielerin ${i + 1}`,
             maxLength: 14,
             autocomplete: "off",
             attrs: {"aria-label": `Name von Spieler ${i + 1}`},
@@ -21,6 +21,6 @@ export function generateNameFields() {
     });
 
     document.getElementById("namesForm").replaceChildren(
-        el("div", {class: "row"}, el("div", {class: "round-label", text: "Runde"}), ...cells),
+        el("div", {class: "row"}, el("div", {class: "round-label", text: ""}), ...cells),
     );
 }

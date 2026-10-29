@@ -13,7 +13,7 @@ function numberField(kind, label, round, player) {
         max: round,
         inputMode: "numeric",
         placeholder: "–",
-        attrs: {"aria-label": `${label} Spieler ${player + 1}, Runde ${round}`},
+        attrs: {"aria-label": `${label} Spieler/Spielerin ${player + 1}, Runde ${round}`},
     });
     return el("label", {class: "field"}, el("span", {text: label}), input);
 }
@@ -25,7 +25,7 @@ export function generateInputFields() {
 
     const cells = playerColumns(getPlayerCount(), (i) =>
         el("div", {class: `cell p${i + 1}`},
-            el("div", {class: "fields"}, numberField("forecast", "Ansage", round, i), numberField("reached", "Stiche", round, i)),
+            el("div", {class: "fields"}, numberField("forecast", "Vorhersage", round, i), numberField("reached", "Stiche", round, i)),
             el("div", {class: "score", text: "–"}),
         ),
     );

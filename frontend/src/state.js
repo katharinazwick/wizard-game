@@ -29,7 +29,7 @@ export function setName(index, name) {
 }
 
 export function getName(index) {
-    return players[index].name || `Spieler ${index + 1}`;
+    return players[index].name || `Spieler/Spielerin ${index + 1}`;
 }
 
 export const getNames = () => players.map((_, i) => getName(i));
